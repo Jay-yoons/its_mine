@@ -1,0 +1,3003 @@
+@import './responsive.scss';
+
+ul {
+  list-style-type: none;
+}
+
+button {
+  text-align: center;
+  cursor: pointer;
+}
+
+body::-webkit-scrollbar {
+  width: 6px;  /* 스크롤바의 너비 */
+}
+
+body::-webkit-scrollbar-thumb {
+  height: 10%; /* 스크롤바의 길이 */
+  background: rgba(255, 255, 255, 0.3); /*스크롤바의 색상 */
+
+  border-radius: 10px;
+}
+
+body::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 1);  /*스크롤바 뒷 배경 색상*/
+}
+
+.App {
+  background-color: #000;
+  color: white;
+  cursor: default;
+}
+
+.signup {
+  width: 800px;
+  margin-top: 150px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+
+  .userInfo{
+    display: flex;
+    flex-direction: row;
+    padding: 15px 0px;
+  }
+
+  .bottombtn{
+    text-align: center;
+  }
+
+  .userContent{
+    display: flex;
+    align-items: center;
+    padding-right: 50px;
+    font-family: Noto Sans;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  
+    // .uploadBtn {
+    //   text-align: center;
+    //   height: 40px;
+    //   background-color: #fe0505;
+    //   border-radius: 10px;
+    // }
+  
+  }
+  
+  .joinMember{
+    text-align: center;
+    padding-top: 70px;
+    font-family: Noto Sans;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-bottom: 20px;
+  }  
+}
+
+
+.inputs {
+  text-align: center;
+  position: relative;
+  margin: auto;
+  margin-top: 100px;
+  width: 800px;
+  color: #FFF;
+font-family: Noto Sans;
+font-size: 22px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+  
+
+  .inputName {
+    position: absolute;
+    left: 40px;
+  }
+
+  .input-container {
+    margin: 30px 0;
+    width: 275px;
+    margin-left: 296px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 10px 0;
+  }
+
+    input {
+      width: 206px;
+      height: 22px;
+      padding: 0;
+      border: solid 1px black;
+      text-align: center;
+      margin-right: 10px;
+    }
+    
+    select {
+      width: 208px;
+      height: 24px;
+      padding: 0;
+      border: solid 1px black;
+      text-align: center;
+    }
+    
+    textarea {
+      width: 206px;
+      height: 70px;
+      padding: 0;
+      border: solid 1px black;
+    }
+    
+    .checkbox {
+      
+      margin-right: 15px;
+      input {
+        height: auto;
+        width: auto;
+        margin: 0;
+        margin-right: 4px;
+        cursor: pointer;
+      }
+      span {
+        font-size: 15px;
+        cursor: pointer;
+      }
+    }
+
+    .dateInput {
+      display: flex;
+      flex-direction: row;
+      width: 300px;
+
+      span{
+        margin: 0 10px;
+      }
+
+      input {
+        width: 120px;
+      }
+    }
+    
+    .addBtns {
+      transform: translateX(208px);
+      position: absolute;
+      background-color: #fff;
+      height: 24px;
+      border: solid 1px black;
+    }
+  
+
+  .addedDatas {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    transform: translate(-10px, 14px);
+    width: 800px;
+  }
+
+  .addedDataBox {
+    background-color: #fff;
+    color: #000;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    width: 120px;
+    height: 19px;
+    border: 1px solid black;
+    margin: 5px;
+    
+    .addedData {
+      color: #000;
+      font-size: small;
+      width: 100px;
+      transform: translateX(10px);
+    }
+    
+    .delBtn {
+      background-color: rgba(0, 0, 0, 0);
+      border: none;
+    }
+    
+    .uploadBtn{
+      text-align: right;
+    }
+  }
+}
+
+.modalOut {
+  position: fixed;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 9998;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+header { // 시멘틱태그 공부
+  width: 100%;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0);
+  z-index: 8888;
+  
+  .logo {
+    position: absolute;
+    left: 60px;
+    top: 10px;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    .logoIcon {
+      @include desktop {
+        width: 100px;
+      }
+      @include tablet {
+        width: 60px;
+      } 
+      @include mobile {
+        width: 40px;
+      }
+    }
+  }
+  
+  nav{  // ul, li를 써보자!
+    
+    button {
+      position: absolute;
+      top: 20px;
+      background-color:rgba(0, 0, 0, 0);
+      border: none;
+      color: white;
+      
+    }
+    .search {
+      right: 15vw;
+      .searchIcon {
+        width: 25.32px;
+      }
+    }
+    
+    .menu {
+      right: 6.25vw;
+      .menuIcon {
+        width: 21.17px;
+      }
+    }
+  }
+  
+
+  .searchModal{
+    position: absolute;
+    right: 15vw;
+    top: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    border: solid 2px white;
+    border-radius: 12px;
+    background-color: #000;
+    z-index: 9999;
+    
+    .searchInput {
+      position: relative;
+      width: 300px;
+      height: 35px;
+      border-bottom: 2px solid white;
+      
+      .searchText{
+        width: 100%;
+        height: 100%;;
+        background-color: rgba(0, 0, 0, 0);
+        color: #fff;
+        border: none;
+        outline: none;
+      }
+
+      .searchBtn {
+        position: absolute;
+        top : 55%;
+        right: 0;
+        transform: translate(0, -50%);
+        background-color: rgba(0, 0, 0, 0);
+        border: none;
+        .searchBtnIcon {
+          width: 30px
+        }
+      }
+    }
+    .words {
+      .wordsBtns {
+        display: flex;
+        flex-direction: row;
+        width: 300px;
+        border-bottom: 2px solid white;
+        button {
+          width: 50%;
+          height: 40px;
+          background-color: #000;
+          color: #fff;
+          border: solid 5px black;
+          border-radius: 12px;
+          font-size: medium;
+        }
+
+        .selectedBtn {
+          background-color: #fff;
+          color: #000;
+        }
+      }
+    }
+
+    .wordList {
+      text-align: center;
+      color: #fff;
+      
+      .word {
+        margin: 10px 0;
+
+        button{
+          position: absolute;
+          background-color: rgba(0, 0, 0, 0);
+          border: none;
+          color: #fff;
+        }
+      }
+
+      .clearWords{
+        border: 1px black; 
+        background-color: #000;
+        color:#A7A7A7;
+      }
+    }
+  }
+
+  .menuModal {
+    background-color: #404040;
+    width: 120px;
+    position: absolute;
+    right: 3vw;
+    top: 40px;
+    padding: 0;
+    z-index: 9997;
+
+    button {
+      width: 100%;
+      padding: 10px 0;
+      margin-top: -1px;
+      border: 1px solid black;
+      border-collapse: collapse;
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0);
+      color: #fff;
+    }
+  }
+
+  .menuModalOut {
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 9996;
+    background-color: rgba(0, 0, 0, 0);
+  }
+
+  .loginModal {
+    width: 700px;
+    height: 600px;
+    position: relative;
+    margin: 10vh auto;
+    border: none;
+    border-radius: 30px;
+    background-color: #000;
+    color: #fff;
+    z-index: 9999;
+    
+    .closeBtn {
+      position: absolute;
+      top: 31.67px;
+      right: 31.67px;
+      width: 18px;
+      height: 18px;
+      background-color: rgba(0, 0, 0, 0);
+      color: #fff;
+      border: none;
+      padding: 0;
+    }
+    
+    .backBtn {
+      position: absolute;
+      top: 31.67px;
+      left: 31.67px;
+      width: 18px;
+      height: 18px;
+      background-color: rgba(0, 0, 0, 0);
+      color: #fff;
+      border: none;
+      padding: 0;
+    }
+
+    .login {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      
+      .loginTitle {
+        margin-top: 80px;
+        margin-bottom: 62px;
+        font-weight: 500;
+        font-size: 40px;
+      }
+
+      .warnning {
+        height: 16px;
+        font-size: 12px;
+        color: red;
+        transform: translateY(-20px);
+      }
+
+      .hidedWarnning {
+        height: 16px;
+      }
+
+      .loginInput {
+        width: 400px;
+        height: 40px;
+        background-color: rgba(0, 0, 0, 0);
+        color: #fff;
+        outline: none;
+        border: none;
+        border-bottom: 1px solid #666666;
+        margin: 0 150px;
+        margin-bottom: 10px;
+        font-size: 20px;
+      }
+
+      .saveId{
+        width: 100px;
+        height: 24px;
+        align-self: flex-start;
+        margin-left: 150px;
+        font-size: 12px;
+        // transform: translateY(-15px);
+      }
+
+      .loginBtn {
+        width: 140px;
+        height: 60px;
+        margin-top: 66px;
+        border: none;
+        border-radius: 12px;
+        background-color: #fff;
+        font-weight: 600;
+        font-size: 26px;
+      }
+
+      .findBtn {
+        height: 24px;
+        margin-top: 14px;
+        border: none;
+        background-color: rgba(0, 0, 0, 0);
+        color: #9D9D9D;
+        font-weight: 500;
+        font-size: 12px;
+      }
+
+      .RUMember {
+        width: 192px;
+        height: 16px;
+        padding: 0;
+        margin-top: 61px;
+        display: flex;
+        flex-direction: row;
+
+        span {
+          width: 132px;
+          font-weight: 500;
+          font-size: 12px;
+          color: #9D9D9D;
+        }
+        button {
+          margin-left: 12px;
+          width: 48px;
+          background-color: rgba(0, 0, 0, 0);
+          padding: 0;
+          font-weight: 600;
+          font-size: 12px;
+          color: #fff;
+          border: none;
+        }
+      }
+    }
+    .confirmEmailModal{
+      width: 600px;
+      height: 286px;
+      margin: 0 auto;
+      transform: translateY(143px);
+      text-align: center;
+      border: solid 2px #4A4A4A;
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      
+      .userEmail{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        
+        .email-container{
+        display: flex;
+        }
+
+      }
+
+      
+    }
+
+    .confirmPhoneModal{
+      width: 600px;
+      height: 286px;
+      margin: 0 auto;
+      transform: translateY(143px);
+      text-align: center;
+      border: solid 2px #4A4A4A;
+      border-radius: 12px;
+    }
+
+    .find {
+      width: 600px;
+      height: 286px;
+      margin: 0 auto;
+      transform: translateY(143px);
+      text-align: center;
+      border: solid 2px #4A4A4A;
+      border-radius: 12px;
+  
+      .confirmBtns {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        margin-top: 73px;
+  
+        button {
+          width: 140px;
+          height: 140px;
+          background-color: #1C1C1C;
+          border: none;
+          border-radius: 30px;
+        }
+
+        .confirmWay {
+          margin-top: 8px;
+          font-weight: 500;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}
+
+.backButton {
+  position: fixed;
+  top: 5px;
+  left: 5px;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+}
+
+footer {
+  padding: 120px 0;
+  text-align: center;
+  font-weight: 600;
+  background-color: #000;
+
+  @include desktop {
+    .menu {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      width: 600px;
+      margin: 0 auto;
+      justify-content: center;
+      span {
+        padding: 0 40px;
+        border-collapse: collapse;
+        margin: 5px 0;
+        margin-left: -1px;
+        border-left: solid 1px white;
+        border-right: solid 1px white;
+      }
+    }
+  }
+
+  @include tablet {
+    .menu {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      width: 600px;
+      margin: 0 auto;
+      justify-content: center;
+      span {
+        padding: 0 40px;
+        border-collapse: collapse;
+        margin: 5px 0; 
+        margin-left: -1px;
+        border-left: solid 1px white;
+        border-right: solid 1px white;
+      }
+    }
+  }
+
+  @include mobile {
+    .menu {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      width: 355.987px;
+      margin: 0 auto;
+      justify-content: center;
+      span {
+        padding: 0 15px;
+        border-collapse: collapse;
+        margin: 5px 0; 
+        margin-left: -1px;
+        border-left: solid 1px white;
+        border-right: solid 1px white;
+      }
+    }
+  }
+
+  // span {
+  //   margin: 10px
+  // }
+}
+
+
+main {
+  width: 100%;
+  overflow: hidden;
+
+  .home{
+    gap: 34px;
+    ul {
+      padding: 0;
+    }
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      flex-shrink: 0;
+      align-self: stretch;
+      @include desktop {
+        height: 800px;
+        padding-right: 0px;
+        border-radius: 0px 0px 100px 100px;
+      }
+      @include tablet {
+        height: 600px;
+      }
+      @include mobile {
+        height: 400px;
+      }
+      .heroImg {
+        position: absolute;
+        @include desktop {
+          width: 1920px;
+          height: 800px;
+        }
+        @include tablet {
+          width: 1377.149px;
+          height: 600px;
+        }
+        @include mobile {
+          width: 924.985px;
+          height: 400px;
+        }
+      }
+      // .heroBtn {
+      //   position: absolute;
+      //   bottom: 22%;
+      //   right: 12.1%;
+      //   background-color: #fff;
+      //   color: #000;
+      //   width: 277px;
+      //   height: 80px;
+      //   border: none;
+      //   border-radius: 25px;
+      //   font-size: x-large;
+      //   font-weight: 900;
+      // }
+    }
+    .movieLists {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      align-self: stretch;
+      @include desktop {
+        gap: 40px;
+        flex-shrink: 0;
+      }
+      @include tablet {
+        gap: 40px;
+        flex: 1 0 0;
+      }
+      @include mobile {
+        gap: 20px;
+        flex: 1 0 0;
+      }
+      .movieList {
+        display: flex;
+        align-self: stretch;
+        flex-direction: column;
+        align-items: flex-start;
+        @include desktop {
+          padding: 0px 55px 0px 65px;
+          gap: 0px;
+        }
+        @include tablet{
+          padding: 0px 46px;
+          gap: 6px;
+        }
+        @include mobile {
+          padding: 0px 20px 0px 15px;
+          gap: 6px;
+        }
+        .voidReducedTag {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          align-self: stretch;
+          @include desktop {
+            width: 1800px;
+          }
+          @include tablet {
+            width: 768px;
+          }
+          @include mobile {
+            width: 360px;
+          }
+          .blank {
+            display: flex;
+            width: 100px;
+            height: 40px;
+            padding: 10px;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            
+            color: #FFF;
+            text-align: center;
+            font-family: Noto Sans;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+          }
+          .scrollBtn{
+            display: flex; /* 이미지를 플렉스 박스로 설정 */
+            align-items: center; /* 이미지를 세로 중앙 정렬 */
+            width: 40px;
+            height: 40px;
+
+            stroke-width: 1px;
+            stroke: rgba(255, 255, 255, 0.20);
+          }
+        }
+
+        .reducedTag {
+          width: 100%;
+          height: 50px;
+          margin-left: 10px;
+          display: flex;
+          
+          .tagIcon {
+            width: 50px;
+          }
+          
+          .tagName {
+            height: 50px;
+            line-height: 50px;
+          }
+          
+        }     
+        .movieScroll {
+          overflow-x: scroll;
+          display: flex;
+          flex-direction: row;
+          width: 1920px;
+          align-items: flex-start;
+          gap: 10px;
+
+          @include desktop {
+            height: 163px;
+          }
+          @include tablet {
+            height: 124px;
+          }
+          @include mobile {
+            height: 90px;
+          }
+
+          .tag {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            flex-shrink: 0;
+            @include desktop {
+              width: 140px;
+              height: 163px;
+            }
+            @include tablet {
+              width: 106px;
+              height: 117px;
+            }
+            @include mobile {
+              width: 50px;
+              height: 90px;
+            }
+            
+            .tagIcon {
+              display: flex;
+              width: 49.943px;
+              height: 73.99px;
+              justify-content: center;
+              align-items: center;
+              flex-shrink: 0;
+              @include mobile {
+                width: 31.214px;
+                height: 46.244px;
+              }
+            }
+            .tagName {
+              display: flex;
+              padding: 2px 0px;
+              justify-content: center;
+              align-items: center;
+              gap: 10px;
+              align-self: stretch;
+
+              color: #FFF;
+              text-align: center;
+              font-family: Noto Sans;
+              font-size: 20px;
+              font-style: normal;
+              font-weight: 600;
+              line-height: normal;
+              @include mobile {
+                font-size: 10px;
+              }
+            }
+          }
+
+          .scrollBtn{
+            position: absolute;
+            @include desktop {
+              height: 163px;
+              font-size: x-large;
+            }
+            @include tablet {
+              height: 124px;
+              font-size: x-large;
+            }
+            @include mobile {
+              height: 60px;
+              font-size: small;
+            }
+            color: #fff;
+            background-color: rgba(0, 0, 0, 0.3);
+            border: none;
+            z-index: 7777;
+          }
+            
+          .prevBtn {
+            @extend .scrollBtn;
+            left: 0;
+          }
+            
+          .nextBtn {
+            @extend .scrollBtn;
+            right: 0;
+          }
+          
+          .movie{
+            position: relative;
+            .moviePoster { // ul, li로 묶기
+              flex-shrink: 0;
+              border-radius: 20px;
+              @include desktop {
+                width: 290px;
+                height: 163px;
+              }
+              @include tablet {
+                width: 220px;
+                height: 124px;
+              }
+              @include mobile {
+                width: 160px;
+                height: 90px;
+                border-radius: 15.384px;
+              }
+            }
+            &:hover {
+              .layer {
+                display: block;
+              }
+              .movieInfo{
+              display: flex;
+              }
+            }
+            .layer {
+              display: none;
+              position: absolute;
+              width: 100%;
+              height: 100%;
+              background: linear-gradient(
+                to bottom,
+                rgba(0, 0, 0, 0) 20%,
+                rgba(0, 0, 0, 0.7) 100%
+              );
+            }
+          
+          .movieInfo {
+            display: none;
+
+            .title {
+              position: absolute;
+              bottom: 15px;
+              left: 15px;
+            }
+
+            .movieMenu {
+              position: absolute;
+              bottom: 15px;
+              right: 10px;
+              display: flex;
+              flex-direction: row;
+              button {
+                background-color: rgba(0, 0, 0, 0);
+                color: white;
+                border: none;
+                .keepBtnIcon {
+                  width: 17.92px;
+                }
+                .detailBtnIcon{
+                  width: 13.33px;
+                }
+              }
+            }
+          }
+        }
+      }
+      
+      ::-webkit-scrollbar {
+        display: none;
+      }
+
+    }
+  }
+
+    .detailModal { 
+      background-color: #000;
+      position: fixed;
+      border: none;
+      border-radius: 40px;
+      top: 5%;
+      left: 50%;
+      transform: translate(-50%, 0);
+      width: 800px;
+      height: 836px;
+      z-index: 9999;
+      
+      .closeBtn {
+        position: absolute;
+        top: 31.67px;
+        right: 31.67px;
+        width: 18px;
+        height: 18px;
+        background-color: rgba(0, 0, 0, 0);
+        color: #fff;
+        border: none;
+        padding: 0; 
+      }
+
+      .detailImg {
+        width: 100%;
+        border-radius: 40px 40px 0 0;
+       }
+
+      .playBtn {
+        position: absolute;
+        top: 38.5%;
+        right: 92%;
+        background-color: rgba(0, 0, 0, 0);
+        color: #fff;
+        border: none;
+      }
+      
+      .keepBtn {
+        position: absolute;
+        top: 38.5%;
+        left: 94%;
+        background-color: rgba(0, 0, 0, 0);
+        color: #fff;
+        border: none;
+      }
+      
+      .detailInfo {
+        width: 100%;
+        .topInfo {
+          .title {
+              
+          }
+          height: 80px;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          // margin: 0 40px;
+          padding: 0 40px;
+
+          .score {
+            .fillScore {
+              position: absolute;
+              height: 21px;
+              z-index: 1;
+              .starContainer {
+                float: left;
+                width: 14px;
+                margin: 0 1px;
+                .star {
+                  float: left;
+                  color: yellow;
+                  overflow: hidden;
+                  transform: translateX(-1.2px);
+                }
+              }
+            }
+            .baseScore {
+              height: 21px;
+              .starContainer {
+                float: left;
+                width: 14px;
+                margin: 0 1px;
+                .star {
+                  float: left;
+                  color: grey;
+                  transform: translateX(-1.2px);
+                }
+              }
+            }
+          }
+        }
+        .bodyInfo {
+          padding: 0 20px;
+          margin-top: 30px;
+          font-weight: 700;
+          font-size: 14px;
+          .summary {
+
+          }
+          .otherInfo {
+            color: #A7A7A7;
+          }
+        }
+        
+      }
+    }
+  
+    .gradiant {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      height: 120px;
+      z-index: 6666;
+      background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 1) 100%
+      );
+    }
+  }
+
+  .find {
+    width: 600px;
+    height: 400px;
+    text-align: center;
+    margin: auto;
+    margin-top: 150px;
+    margin-bottom: 50px;
+    border: solid 2px white;
+    border-radius: 12px;
+
+    .findBtns {
+      padding: 0;
+      border-bottom: solid 2px white;
+      button {
+        width: 50%;
+        height: 40px;
+        font-size: large;
+        background-color: #000;
+        color: #fff;
+        border: none; 
+        border-radius: 12px;
+      }
+      .selectedFindBtn {
+        background-color: #fff;
+        color: #000;
+        border: solid 5px black;
+      }
+    }
+
+    .confirmBtns {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      height: 358px;
+
+      button {
+        width: 150px;
+        height: 150px;
+        background-color: black;
+        border: solid 2px white;
+        border-radius: 12px;
+      }
+    }
+  }
+
+  .signin {
+    
+    text-align: center;
+    h1 {
+      margin-top: 100px;
+    }
+
+    .inputs {
+      width: 800px;
+      margin: auto;
+      margin-top: 50px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      
+      .inputBox {
+        margin: 30px 0;
+        
+        .inputName {
+          position: absolute;
+          left: 200px;
+        }
+        input {
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 150px;
+        }
+
+        select {
+          position: absolute;
+          left: 50%;
+          transform: translateX(105px);
+          width: 150px;
+        }
+
+        .rhfqoddl {
+          position: absolute;
+          left: 50%;
+          transform: translateX(85px);
+        }
+        .confirmNumBtn {
+          position: absolute;
+          top: 28px;
+          right: 30px;
+          background-color: #fff;
+          border-radius: 8px;
+        }
+        .confirmBtn {
+          position: absolute;
+          top: 88px;
+          right: 260px;
+          background-color: #fff;
+          border-radius: 8px;
+        }
+        .checkboxContainer {
+          margin: auto;
+          height: 18px;
+          width: 400px;
+          transform: translateX(30px);
+          input {
+            position: static;
+            width: 13px;
+            transform: translate(2px, 2px);
+            margin-left: 10px;
+          }
+          .checkboxName {
+            font-size: smaller;
+          }
+        }
+      }
+    }
+  }
+
+  .tagmain {
+    color: white(228, 20, 20);
+    
+    .tagId{ 
+      color: red($color: #000000);
+      margin: auto;
+      text-align: center;
+
+    }
+  }
+
+
+  .player {
+    display: flex;
+    height: 2893.618px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
+    flex-shrink: 0;
+    align-self: stretch;
+
+    .playerdetail {
+      padding-top: 60px;
+      padding-left: 65px;
+      padding-right: 65px;
+      height: 1000px;
+      flex-direction: column;
+
+      .playermain{
+        
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        .leftInfo {
+          display: flex;
+          flex-direction: row;
+          flex:1;
+          justify-content: space-between;
+          align-items: center;
+
+          .movieTitle{
+            display: flex;
+            flex-direction: row;
+            font-size:xx-large;
+            font-weight:bolder;
+          }
+          
+          .payment{
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            padding-left: 10px;
+            row-gap: 40px;
+          }
+
+
+        }
+
+
+        .righInfo {
+          display: flex;
+          flex-direction: column;
+          flex:1;
+          justify-content: space-between;
+          
+        }
+
+        
+      }
+      .otherInfo{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        .summary{
+          padding-top: 30px;
+          display: 1;
+          flex-direction: column;
+          
+        }
+      }
+      
+      .playerList{
+        padding-top: 60px;
+        display: flex;
+        padding: 0px 65px;
+        flex-direction: column;
+
+        .ListName{
+          font-family: Noto Sans;
+          font-size: 20px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: normal;
+        }
+
+        .MovieLists{
+          display: flex;
+          flex-direction: row;
+          padding-top: 6px;
+
+          .photo-container {
+            display: flex;
+            padding-right: 10px;
+            
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+            
+          }
+          .photo {
+            display: flex;
+            flex-direction: column;
+            max-width: 200px;
+            margin-bottom: 0;
+            border-top-left-radius: 7%;
+            border-top-right-radius: 7%;
+          }
+          
+        }
+      }
+    }
+
+      // .playerList2{
+      //   padding-top: 60px;
+
+      //   .ListName2{
+      //     font-family: Noto Sans;
+      //     font-size: 20px;
+      //     font-style: normal;
+      //     font-weight: 700;
+      //     line-height: normal;
+      //   }
+      // }
+      
+      
+    }
+    
+    .playermain {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+      align-self: stretch;
+      
+      @include mobile {
+        gap: 6px;
+      }
+      .space {
+        flex: 1; /* 중간 공간 차지 */
+      }
+
+      .playertitle {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        align-self: stretch;
+
+        .leftInfo {
+          display: flex;
+          align-items: center;
+          @include desktop {
+            gap: 20px; 
+          }
+          @include tablet {
+            gap: 10px;
+          }
+          @include mobile {
+            gap: 6px;
+          }
+          .title {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+
+            color: #FFF;
+            text-align: center;
+            font-family: Noto Sans;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            @include desktop {
+              width: auto; 
+              height: 80px;
+
+              font-size: 60px;
+            }
+            @include tablet {
+              width: auto;
+              height: auto;
+
+              font-size: 40px;
+            }
+            
+            @include mobile { 
+              width: auto;
+              height: 30px;
+
+              font-size: 20px;
+            }
+          }
+          
+          .laurel {
+            @include desktop {
+              display: flex;
+              width: 40px;
+              height: 40px;
+              padding: 5.714px 1.843px 5.847px 1.71px;
+              justify-content: center;
+              align-items: center;
+            }
+            @include tablet {
+              display: flex;
+              width: 30px;
+              height: 30px;
+              padding: 4.286px 1.382px 4.385px 1.282px;
+              justify-content: center;
+              align-items: center;
+            }
+            @include mobile {
+              display: flex;
+              width: 20px;
+              height: 20px;
+              padding: 2.857px 0.922px 2.924px 0.855px;
+              justify-content: center;
+              align-items: center;
+            }
+            .paidservices {
+              @include desktop {
+                width: 36.447px;
+                height: 28.439px;
+                flex-shrink: 0;
+
+              }
+              @include tablet {
+                width: 27.335px;
+                height: 21.329px;
+                flex-shrink: 0;
+              }
+              @include mobile {
+                width: 18.223px;
+                height: 14.219px;
+                flex-shrink: 0;
+              }
+            } 
+          } 
+        }
+        
+        .rightInfo {
+          display: flex;
+          align-items: flex-start;
+          gap: 20px;
+          @include mobile {
+            gap: 0px;
+          }
+          .like, .redLike, .report2 {
+            @include desktop {
+              width: 60px;
+              height: 60px; 
+              cursor: pointer; 
+            }
+            @include tablet {
+              width: 40px;
+              height: 40px; 
+              cursor: pointer; 
+            }
+            @include mobile {
+              width: 25px;
+              height: 25px; 
+              cursor: pointer; 
+            }
+          }
+        }
+      }
+      
+      .plot {
+        display: flex;
+        width: 100%;
+        align-items: flex-start;
+        align-self: stretch;
+        @include desktop {
+          justify-content: space-between;
+        }
+        @include tablet {
+          gap: 24px;
+        }
+        @include mobile {
+          gap: 24px;
+        }
+
+        .smallplot {
+          display: flex;
+          width: 100%;
+          height: 70px;
+          flex-direction: column;
+          align-items: flex-end;
+          gap: 6px;
+          flex: 1 0 0;          
+          @include mobile {
+            height: auto;
+          }
+
+          .summary {
+            display: -webkit-box;
+            -webkit-line-clamp: 2; /* 최대 2줄 표시 */
+            -webkit-box-orient: vertical;
+            width: 100%;
+            height: 44px;
+            flex-shrink: 0; 
+            align-self: stretch;
+
+            overflow: hidden;
+            color: #FFF;
+            text-overflow: ellipsis;
+            white-space: normal;
+            font-family: Noto Sans;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 22px; /* 157.143% */
+
+            @include mobile {
+              -webkit-line-clamp: 1;
+              height: 24px;
+              white-space: normal;
+              font-size: 8px;
+            }
+          }
+        }
+
+        .starunninghits {
+          display: flex;
+          height: 80px;
+          padding: 8px 0px;
+          flex-direction: column;
+          align-items: flex-end;
+          gap: 10px;
+          @include mobile {
+            height: auto;
+            gap: 4px;             
+          }
+
+          .playerFillScore {
+            display: flex;
+            align-items: flex-start;
+            gap: 4px;
+            flex-shrink: 0;
+            @include desktop {
+              width: 139.091px;
+              height: 24.618px;
+            }
+
+            @include tablet {
+              width: 100px;
+              height: 18px;
+            }
+
+            @include mobile {
+              width: 50px;
+              height: 9px;
+              gap: 2px;
+            }
+
+            .playerStar {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              flex: 1 0 0;
+              align-self: stretch;
+              @include desktop {
+                width: 24.62px;
+                height: 24.62px;
+              }
+              @include tablet {
+                width: 16.801px;
+                height: 18.001px;
+              }
+              @include mobile {
+                width: 8.401px;
+                height: 9.001px;
+              }
+            }
+
+          }
+
+          .runninghits {
+            display: flex;
+            height: 28px;
+            flex-direction: column;
+            align-items: flex-end;
+            flex-shrink: 0;
+            @include mobile {
+              width: 50px;
+              height: auto;
+            }
+
+            .runningtime, .hits {
+              color: #FFF;
+              text-align: center;
+              white-space: nowrap;
+              font-family: Noto Sans;
+              font-size: 10px;
+              font-style: normal;
+              font-weight: 700;
+              line-height: normal;
+              @include mobile {
+                font-size: 6px;
+              }
+            }
+          }
+        }
+      }
+
+      .moreInfo {
+        display: flex;
+        height: 90px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 2px;
+
+        .date {
+
+          width: 128px;
+          height: 20px;
+          flex-shrink: 0;
+
+          color: #A7A7A7;
+          font-family: Noto Sans;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: normal;
+
+        }
+
+        .direct {
+
+          width: 131px;
+          height: 20px;
+          flex-shrink: 0;
+
+          color: #A7A7A7;
+          font-family: Noto Sans;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: normal;
+
+        }
+
+        .screenpaly {
+
+          width: 181px;
+          height: 20px;
+          flex-shrink: 0;
+
+          color: #A7A7A7;
+          font-family: Noto Sans;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: normal;
+
+        }
+
+        .cast {
+
+          display: flex;
+          width: 300px;
+          height: 20px;
+          align-items: flex-start;
+          gap: 10px;
+          flex-shrink: 0;
+
+          .fullContent { 
+            .showCast {
+              display: -webkit-box;
+              -webkit-box-orient: vertical;
+              flex: 1 0 0;
+
+              overflow: visible;
+              color: #A7A7A7;
+              text-overflow: ellipsis;
+              font-family: Noto Sans;
+              font-size: 14px;
+              font-style: normal;
+              font-weight: 700;
+              line-height: normal;
+            }
+          }
+          
+          .summaryContent { 
+            .hideCast {
+              display: -webkit-box;
+              -webkit-box-orient: vertical;
+              -webkit-line-clamp: 1;
+              flex: 1 0 0;
+
+              overflow: hidden;
+              color: #A7A7A7;
+              text-overflow: ellipsis;
+              font-family: Noto Sans;
+              font-size: 14px;
+              font-style: normal;
+              font-weight: 700;
+              line-height: normal;
+            }
+          }
+          
+          .more {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 9.96px;
+
+            .moreContent {
+
+              width: 42px;
+              height: 20px;
+              color: #535353;
+              text-align: right;
+              font-family: Noto Sans;
+              font-size: 14px;
+              font-style: normal;
+              font-weight: 700;
+              line-height: normal;
+
+            }
+
+            .arrow-button {
+              background-color: #000000;
+              border: none;
+              padding: 0;
+              cursor: pointer;
+              .arrow {
+                width: 14.473px;
+                height: 8.492px;
+              }
+            }
+          }         
+        }
+      }
+    }
+
+    .videoContent {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+
+      .likeContent {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        
+        .title {
+          color: #FFF;
+          text-align: center;
+          font-family: Noto Sans;
+          font-size: 20px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: normal;
+        }
+
+        .movie {
+          display: flex;
+          padding: 6px 0px;
+          align-items: flex-start;
+          gap: 10px;
+
+          .relatedMovies {
+
+          }
+        }
+      }
+    }
+
+    .videoContainer {
+      position: relative;
+      width: 100%;
+      height: 39.975vw;
+
+      .playerLayer {
+        background-color: rgba(0, 0, 0, 0);
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 7777;
+      }
+  
+      .cusorHidedPlayerLayer {
+        background-color: rgba(0, 0, 0, 0);
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 7777;
+        cursor: none;
+      }
+      
+      .video {
+        
+      }
+    
+      .controls {
+
+        
+        // input[type=range] {
+        //   width:100%;
+        //   // -webkit-appearance: none;
+        //   height: 1px;
+        //   outline: none;
+        //   background-color: #fff;
+        //   ::-moz-range-thumb {
+        //     color: #000;
+        //   }
+        // }
+        
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: absolute;
+        bottom: 5px;
+        
+        width: 100%;
+        height: 100%;
+        // z-index: 8888;
+
+        button {
+          background-color: rgba(0, 0, 0, 0);
+          border: none;
+          color: #fff;
+        }
+
+        .topControls{
+          padding-top: 10px;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          z-index: 8888;
+        }
+
+        .reportModal {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          width: 280px;
+          background-color: #2D2D2D;
+          z-index: 9999;
+          padding-bottom: 15px;
+          display: flex;
+          width: 280px;
+          height: 297px;
+          flex-direction: column;
+          border: none;
+          font-size: 14px;
+          font-family: Inter;
+          font-style: normal;
+          font-weight: 700;
+          line-height: normal;
+          
+          .reportComment {
+            padding: 10px;
+            color:#ff0000;
+            display: flex;
+            border: 1px solid rgba(0, 0, 0, 0);
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+          }
+
+          .reportAnswer {
+            padding: 0px 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+          }
+
+          button {
+            margin-top: -1px;
+            border: 1px solid rgba(0, 0, 0, 0);
+            padding-top: 10px;
+            justify-content: flex-start;
+            border-collapse: collapse;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0);
+            color: #ffffff;
+            font-family: Inter;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            gap: 10px;
+            display: flex;
+            align-items: center;
+
+            .reportCloseBtn{
+              padding: 10px 0;
+            }
+            
+          }
+
+          .buffering {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+          }
+          
+          .subTitles{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+          }
+
+          .changeIcon{
+            display: flex;
+            align-items: center;
+          }
+
+          .caption{
+            color: #A7A7A7;
+            font-family: Inter;
+            font-size: 7px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+          }
+        }
+
+        .centerPlayPauseBtn {
+          margin: auto;
+          background-color: rgba(0, 0, 0, 0.3);
+          width: 35px;
+          height: 35px;
+          border-radius: 50%;
+          border: none;
+          z-index: 8888;
+        
+        }
+
+
+        .bottomControls{
+          display: flex;
+          flex-direction: column;
+          z-index: 8888;
+          margin-bottom: -5px;
+          background-color: rgba(0, 0, 0, 0.5);
+            
+          .timeControl {
+            margin: auto;
+            .timeSlider {
+              margin: auto;
+  
+              @include desktop {
+                width: 99vw;
+              }
+              @include tablet {
+                width: 98vw;
+              }
+            }
+          }
+
+          .bottom {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            
+            
+            .leftControls{
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+
+              .playPauseControl {
+                .playPauseBtn {
+                  background-color: rgba(0, 0, 0, 0);
+                  border: none;
+                }
+              }
+
+              .backwardForwardControl {
+                display: flex;
+                flex-direction: row;
+              }
+      
+              .muteControl {
+              }
+        
+              .volumeControl{  
+                .volumeSlider {
+                  width: 50px;;
+                }
+              }
+              .timeInfo {
+                margin-left: 10px;
+                padding-bottom: 3px;
+              }
+            }
+            
+            .rightControls {
+              display: flex;
+              flex-direction: row;
+              padding-top: 2px;
+
+              .playbackRateControl {
+                width: 70px;
+        
+                .playbackRateModal {
+                  display: flex;
+                  flex-direction: column;
+                  position: absolute;
+                  bottom: 40px;
+                  background-color: rgba(0, 0, 0, 0.5);
+                  width: 70px;
+            
+                  button {
+                    background-color: rgba(0, 0, 0, 0);
+                    border: none;
+                    color: #fff;
+                    width: 70px;
+                    height: 25px;
+
+                    .playbackRateCheck {
+                      position: absolute;
+                      left: 2px;
+                    }
+                  }
+                }
+              }
+
+              .fullScreenControl {
+                padding-top: 2px;
+              }
+            }
+          }
+        }
+      }
+
+    }
+    
+    
+  }
+
+  .search {
+    display: flex;
+    padding: 70px 0px;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+    align-self: stretch;
+
+    @include mobile {
+      display: flex;
+      padding: 70px 0px;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+      align-self: stretch;
+    }
+    .searchWord {
+      display: flex;
+      width: 1200px;
+      justify-content: center;
+      align-items: flex-start;
+
+      color: #FFF;
+      text-align: center;
+      font-family: Noto Sans;
+      font-size: 40px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+
+      @include mobile {
+        display: flex;
+        width: 360px;
+        justify-content: center;
+        align-items: center;
+        gap: 4px;
+        
+        color: #FFF;
+        text-align: center;
+        font-family: Noto Sans;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;       
+      }
+    }
+
+    .comment {
+      height: 20vh;
+      margin-top: 150px;
+      text-align: center;
+    }
+
+    .searchedMovieList {
+      @include desktop {
+        display: flex;
+        width: 1200px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 60px;
+      }
+      @include tablet {
+        display: flex;
+        padding: 0px 34px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 60px;
+        align-self: stretch;
+      }
+      @include mobile {
+        display: flex;
+        width: 360px;
+        padding: 0px 15px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 60px;
+      }
+
+      .searchedMovie {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        align-self: stretch;
+        gap: 24px;
+        cursor: pointer;
+        @include desktop {
+          height: 160px;
+          padding: 6px 0px;
+        }
+        @include tablet {  
+          height: 124px;
+          padding: 6px 0px;
+        }
+        @include mobile {   
+          width: 100%;
+          justify-content: center;                
+        }
+
+        .searchedMovieImg {
+          .moviePoster {
+            @include desktop {
+              display: flex;
+              width: 281.473px;
+              height: 159px;
+              // padding: 111px 0.473px 0px 191px;
+              justify-content: flex-end;
+              align-items: center;
+  
+              border-radius: 16px;
+            }
+            @include tablet {
+              display: flex;
+              width: 220px;
+              height: 124px;
+              // padding: 86px 0px 0px 150px;
+              justify-content: flex-end;
+              align-items: center;
+  
+              border-radius: 16px;
+            }
+            @include mobile {
+              display: flex;
+              width: 218px;
+              height: 122px;
+              // padding: 85.5px 0px 0px 150.5px;
+              justify-content: flex-end;
+              align-items: center;
+  
+              border-radius: 16px;
+            }
+          }
+        }
+        
+        .searchedMovieInfo {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: flex-start;
+          flex: 1 0 0;
+          @include desktop {
+            align-self: stretch;
+          }
+          @include tablet {
+            height: 124px;
+          }
+          @include mobile {
+            display: none;
+          }
+           
+          .movieTitle {
+            color: #FFF;
+            font-family: Noto Sans;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            @include desktop {
+              font-size: 30px;
+            }
+            @include tablet {  
+              font-size: 24px;
+            }
+          }
+          .summary {
+            flex: 1 0 0;
+            align-self: stretch;
+
+            color: #A7A7A7;
+            font-family: Noto Sans;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            @include desktop {
+
+              font-size: 16px;
+            }
+            @include tablet {
+              overflow: hidden;
+              text-overflow: ellipsis;
+              whitespace: nowrap;
+              font-size: 14px;
+            }
+          }
+          .moreInfo {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+
+            color: #FFF;
+            font-family: Noto Sans;
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+
+            .views, .likes{
+              display: flex;
+              align-items: flex-start;
+              gap: 2px;
+
+              color: #666;
+              font-family: Noto Sans;
+              font-size: 12px;
+              font-style: normal;
+              font-weight: 700;
+              line-height: normal;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .requestMovie {
+    h1 {
+      text-align: center;
+      margin-top: 100px;
+      margin-bottom: 50px;
+    }
+
+    .selectMenu {
+  
+      .Btns {
+        text-align: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+  
+        button {
+          margin-top: 60px;
+          margin-bottom: 70px;
+          margin-left: 20px;
+          margin-right: 20px;
+          height: 384px;
+          width: 326px;
+          background-color: #4A4A4A;
+          border-radius: 12px;
+          color: white;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          font-family: Noto Sans;
+          font-size: 28px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: normal;
+          
+          .requestImg{
+            width: 228.456px;
+            height: 228.456px;
+          }
+
+          .comment {
+            color: #A7A7A7;
+            text-align: center;
+            font-family: Noto Sans;
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+          }
+        }
+      }
+      
+    }
+
+    .requestBtn {
+          text-align: center;
+          margin-top: 50px;
+          height: 40px;
+          background-color: #fff;
+          border-radius: 10px;
+        }
+
+    .request {
+
+      .inputs {
+        
+        text-align: center;
+        position: relative;
+        margin: auto;
+        margin-top: 100px;
+        width: 500px;
+        
+        span  {
+          position: absolute;
+          left: 80px;
+        }
+
+        input {
+          width: 200px;
+          height: 18px;
+        }
+
+        .titleInput{
+          margin-bottom: 30px;
+        }
+
+        .directorInput{
+          button {
+            position: absolute;
+          }
+          
+          .directors {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            margin-top: 20px;
+  
+            .directorBox {
+              background-color: #fff;
+              color: #000;
+              display: flex;
+              flex-direction: row;
+              text-align: center;
+              width: 120px;
+              height: 19px;
+              border: 1px solid black;
+              margin: 0 5px;
+              
+              .director {
+                color: #000;
+                font-size: small;
+                width: 100px;
+                transform: translateX(10px);
+              }
+  
+              button {
+                background-color: rgba(0, 0, 0, 0);
+                border: none;
+                transform: translateX(100px);
+              }
+  
+            }
+  
+            .void {
+              height: 21px;
+              background-color: rgba(0, 0, 0, 0);
+            }
+          } 
+        }
+      
+      }
+    }
+  }
+
+  .account {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 80px;
+    align-self: stretch;
+    @include desktop {
+      padding: 190px 0px;
+    }
+    @include tablet {
+      padding: 190px 34px;
+    }
+    @include mobile {
+      padding: 190px 15px;
+    }
+    .totalInfo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      @include desktop {
+        width: 1200px;
+        gap: 40px;
+      }
+      @include tablet {
+        gap: 40px;
+        align-self: stretch;       
+      }
+      @include mobile {
+        align-self: stretch;
+      }
+
+      .title {
+        @include desktop {
+          display: flex;
+          padding: 20px 0px;
+          justify-content: center;
+          align-items: flex-start;
+          gap: 10px;
+          align-self: stretch;
+  
+          border-radius: 20px;
+          border: 1px solid #666;
+        }
+        @include tablet {
+          display: flex;
+          padding: 20px 0px;
+          justify-content: center;
+          align-items: flex-start;
+          gap: 10px;
+          align-self: stretch;
+  
+          border-radius: 20px;
+          border: 1px solid #666;          
+        }
+        @include mobile {
+          display: flex;
+          height: 32px;
+          justify-content: center;
+          align-items: center;
+          gap: 10px;
+          align-self: stretch;
+
+          border-radius: 20px;
+          border: 1px solid #666;         
+        }
+        .text {
+          width: auto;
+          height: 40px;
+
+          color: #FFF;
+          text-align: center;
+          font-family: Noto Sans;
+          font-size: 30px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: normal;
+          @include mobile {
+            width: 119px;
+            height: auto;
+
+            font-size: 16px;
+          }
+        }
+      }
+
+      .content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+        align-self: stretch;
+        @include mobile {
+          gap: 4px;
+        }
+        .info {
+          display: flex;
+          align-items: center;
+          align-self: stretch;
+          @include desktop {
+            height: 50px;
+            gap: 24px;
+          }
+          @include tablet {   
+            height: 50px;
+            gap: 20px;        
+          }
+          @include mobile {
+            height: 40px;
+            gap: 6px;       
+          }
+
+          .infoNameBox {
+            color: #A7A7A7;
+            text-align: center;
+            font-family: Noto Sans;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;              
+            @include desktop {
+              width: 180px;
+
+            }
+            @include tablet {
+              width: 128px;
+            }
+            @include mobile {
+              width: 68px;
+
+              text-align: left;
+              font-size: 8px;
+            }
+          }
+
+          .infoBox {
+            flex: 1 0 0;
+
+            color: #FFF;
+            font-family: Noto Sans;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+            gap: 24px;
+            @include desktop {
+              display: flex;
+              padding-left: 240px;
+              align-items: flex-start;
+
+            }
+            @include tablet {
+              display: flex;
+              align-items: flex-start;
+            }
+            @include mobile {
+              gap: 6px;
+              font-size: 8px;
+            }
+          }
+
+          .infoCheckBox {
+            @include desktop {
+              display: flex;
+              padding: 0px 204px;
+              align-items: flex-start;
+              gap: 24px;
+            }
+            @include tablet {
+              display: flex;
+              align-items: flex-start;
+              gap: 20px;
+            }
+            @include mobile {
+              display: flex;
+              width: 218px;
+              justify-content: space-between;
+              align-items: flex-start;
+            }
+          }
+          button {
+            display: flex;
+            width: auto;
+            padding: 10px 20px;
+            justify-content: center;
+            align-items: center;
+
+            border-radius: 20px;
+            background: #2F2F2F;
+
+            color: #FFF;
+            text-align: center;
+            font-family: Noto Sans;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+
+            @include desktop {
+              height: 50px;
+
+            }
+            @include tablet {
+              height: 50px;
+            }
+            @include mobile {
+              height: 20px;
+
+              font-size: 8px;
+            }
+          }
+          .sns, .e-mail {
+            display: flex;
+            align-items: center;
+            @include desktop {
+              width: 195px;
+            }
+            @include tablet {
+              width: 220px;
+            }
+            input[type="checkbox"] {
+              width: 20px;
+              height: 20px;
+              flex-shrink: 0;
+
+              accent-color: #4A4A4A;
+
+              @include mobile {
+                width: 15px;
+                height: 15px;
+                flex-shrink: 1;
+              }
+              :checked {
+                width: 20px;
+                height: 20px;
+                flex-shrink: 0;
+
+                @include mobile {
+                  width: 15px;
+                  height: 15px;
+                  flex-shrink: 1;
+                }
+              }
+            }
+            .text {
+              flex: 1 0 0;
+
+              color: #FFF;
+              text-align: center;
+              font-family: Noto Sans;
+              font-size: 20px;
+              font-style: normal;
+              font-weight: 500;
+              line-height: normal;      
+              
+              @include mobile {
+                width: 76px;
+                font-size: 8px;
+              }
+            }
+          }
+          img {
+            @include desktop {
+              width: 50px;
+              height: 50px;
+            }
+            @include tablet {
+              width: 40px;
+              height: 40px;
+            } 
+            @include mobile {
+              width: 20px;
+              height: 20px;
+            }
+          }
+        }
+        .more {
+          @include desktop {
+            display: flex;
+            width: 1200px;
+            justify-content: center;
+            align-items: center;
+            gap: 100px;
+          }
+          @include tablet {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 100px;
+            align-self: stretch;
+          }
+          @include mobile {
+            width: 218px;
+            height: 20px;
+            padding: 10px 20px;
+          }
+          button {
+            display: flex;
+            padding: 10px 20px;
+            justify-content: center;
+            align-items: center;
+
+            border-radius: 20px;
+            background: #2F2F2F;
+
+            color: #FFF;
+            text-align: center;
+            font-family: Noto Sans;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            
+            @include desktop {
+              width: auto;
+              height: 50px;
+
+            }
+            @include tablet {
+              width: 460px;
+              height: 50px;
+            }
+            @include mobile {
+              width: 218px;
+              height: 20px;
+
+              font-size: 8px;
+            }
+          }
+        }
+        .line {
+          height: 1px;
+          width: 100%;
+
+          background: #666;
+        }
+      }
+    }
+  }
+
+  
+  .postList {
+    text-align: center;
+      h1 {
+        margin-top: 100px;
+      }
+
+      .writeBtn{
+        text-align: right;
+        padding-left: 460px;
+        padding-bottom: 10px;
+      }
+
+      .listBox {
+        margin: auto;
+        width: 500px;
+        height: 500px;
+
+        ul {
+          margin: 0;
+          padding: 0;
+          border: solid 1px white;
+          
+          li {
+            display: flex;
+            flex-direction: row;
+            // justify-items: center;
+            border-bottom: solid 1px white;
+            border-top: solid 1px white;
+
+            .title {
+              // width: 400px;
+              margin: 10px 20px;
+            }
+            .createdDate {
+              margin: 10px 20px;
+            }
+          }
+        }
+      }
+
+      .currPageBtn {
+        background-color: #fff;
+        color: #000;
+        border-radius: 30%;
+      }
+
+      button {
+        background-color: rgba(0, 0, 0, 0);
+        border: none;
+        color: white;
+      }
+    
+    }
+    .noticeDetail {
+      h2 {
+        margin: 50px 0;
+      }
+      .content {
+        margin: 0 auto;
+        width: 500px;
+        height: 500px;
+        text-align: start;
+      }
+    }
+  
+
+  .customerService{
+    text-align: center;
+    h1 {
+      margin-top: 100px;
+    }
+
+    .FAQ {
+      .FAQBox {
+        margin-top: 70px;
+        height: 220px;
+        background-color: #000;
+
+        .FAQCategorys {
+          position: absolute;
+          left: 5vw;
+          width: 180px;
+          button {
+            width: 180px;
+            background-color: #fff;
+            text-align: start;
+            border: none;
+            border-bottom: solid 1px black;
+          }
+          .categoryBtn {
+            font-size: large;
+            color: #fff;
+            background-color: #000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          
+          }
+          .FAQBtn {
+            height: 24px;
+            font-size: small;
+            color: #fff;
+            background-color: #000;
+          }
+        }
+        .FAQContent {
+          margin: auto;
+          text-align: center;
+          .content {
+            margin-top: 50px
+          }
+          .FAQComment{
+            transform: translateY(30px);
+          }
+        }
+      }
+
+      .inquiryBtn {
+        float: left;
+        top: 400px;
+        transform: translateX(5vw);
+        width: 180px;
+        border: none;
+        font-size: large;
+        background-color: #fff;
+        color: #000;
+        border-radius: 5px;
+      }
+    }
+    .inquiry {
+      text-align: center;
+      
+      .inquiryList {
+        h1 {
+          margin-top: 150px;
+        }
+        
+        .postBtn {
+          background-color: #fff;
+          color: #000;
+          width: 80px;
+          margin-bottom: 20px;
+          border-radius: 8px;
+          font-size: medium;
+          transform: translateX(205px);
+        }
+        
+        .listBox {
+          margin: auto;
+          width: 500px;
+          height: 500px;
+  
+          ul {
+            margin: 0;
+            padding: 0;
+            border: solid 1px white;
+            
+            li {
+              display: flex;
+              flex-direction: row;
+              justify-items: start;
+              border-bottom: solid 1px white;
+              border-top: solid 1px white;
+  
+              .no {
+                width: 17.25px;
+                margin: 10px 20px;
+              }
+              .title {
+                margin: 10px 20px;
+              }
+            }
+          }
+        }
+        .currPageBtn {
+          background-color: #fff;
+          color: #000;
+          border-radius: 30%;
+        }
+        button {
+          background-color: rgba(0, 0, 0, 0);
+          border: none;
+          color: white;
+        }
+      }
+
+      .inquiryDetail {
+        h2 {
+          margin: 50px 0;
+        }
+        .content {
+          margin: 0 auto;
+          width: 500px;
+          height: 500px;
+          text-align: start;
+        }
+      }
+
+      .inquiryPost{
+
+        .inputs {
+          margin-top: 100px;
+          text-align: center;
+
+          .inputBox{
+            margin-bottom: 30px;
+            input {
+              width: 200px;
+            }
+            select {
+              width: 208px;
+              height: 21px;
+              padding: 1px 2px;
+              border: solid white 2px;
+              text-align: center;
+            }
+            textarea {
+              width: 500px;
+              height: 300px;
+            }
+            .inputName {
+              position: absolute;
+              transform: translateX(-100px);
+            }
+          }
+        }
+        .postBtn{
+          text-align: center;
+          margin-top: 50px;
+          height: 40px;
+          background-color: #fff;
+          border-radius: 10px;
+        }
+      } 
+    }
+  }
+
+//시멘틱 태그, 가운데정렬 분산, ul li 
+// top50%, 50% 위로 

@@ -1,0 +1,142 @@
+let inquiryData = [
+  {
+    id : 0,
+    no : 1,
+    title : '문의1',
+    content : "문의1 내용",
+  },
+  {
+    id : 1,
+    no : 2,
+    title : '문의2',
+    content : "문의2 내용",
+  },
+  {
+    id : 2,
+    no : 3,
+    title : '문의3',
+    content : "문의3 내용",
+  },
+  {
+    id : 3,
+    no : 4,
+    title : '문의4',
+    content : "문의4 내용",
+  },
+  {
+    id : 4,
+    no : 5,
+    title : '문의5',
+    content : "문의5 내용",
+  },
+  {
+    id : 5,
+    no : 6,
+    title : '문의6',
+    content : "문의6 내용",
+  },
+  {
+    id : 6,
+    no : 7,
+    title : '문의7',
+    content : "문의7 내용",
+  },
+  {
+    id : 7,
+    no : 8,
+    title : '문의8',
+    content : "문의8 내용",
+  },
+  {
+    id : 8,
+    no : 9,
+    title : '문의9',
+    content : "문의9 내용",
+  },
+  {
+    id : 9,
+    no : 10,
+    title : '문의10',
+    content : "문의10 내용",
+  },
+  {
+    id : 10,
+    no : 11,
+    title : '문의11',
+    content : "문의11 내용",
+  },
+  {
+    id : 11,
+    no : 12,
+    title : '문의12',
+    content : "문의12 내용",
+  },
+  {
+    id : 12,
+    no : 13,
+    title : '문의13',
+    content : "문의13 내용",
+  },
+  {
+    id : 13,
+    no : 14,
+    title : '문의14',
+    content : "문의14 내용",
+  },
+  {
+    id : 14,
+    no : 15,
+    title : '문의15',
+    content : "문의15 내용",
+  },
+  {
+    id : 15,
+    no : 16,
+    title : '문의16',
+    content : "문의16 내용",
+  },
+  {
+    id : 16,
+    no : 17,
+    title : '문의17',
+    content : "문의17 내용",
+  },
+  {
+    id : 17,
+    no : 18,
+    title : '문의18',
+    content : "문의18 내용",
+  },
+  {
+    id : 18,
+    no : 19,
+    title : '문의19',
+    content : "문의19 내용",
+  },
+  {
+    id : 19,
+    no : 20,
+    title : '문의20',
+    content : "문의20 내용",
+  },
+  {
+    id : 20,
+    no : 21,
+    title : '문의21',
+    content : "문의21 내용",
+  },
+  {
+    id : 21,
+    no : 22,
+    title : '문의22',
+    content : "문의22 내용",
+  },
+  {
+    id : 22,
+    no : 23,
+    title : '문의23',
+    content : "문의23 내용",
+  },
+]
+
+export default inquiryData;

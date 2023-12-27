@@ -1,0 +1,142 @@
+let noticeData = [
+  {
+    id : 0,
+    no : 1,
+    title : '공지1',
+    content : "공지1 내용",
+  },
+  {
+    id : 1,
+    no : 2,
+    title : '공지2',
+    content : "공지2 내용",
+  },
+  {
+    id : 2,
+    no : 3,
+    title : '공지3',
+    content : "공지3 내용",
+  },
+  {
+    id : 3,
+    no : 4,
+    title : '공지4',
+    content : "공지4 내용",
+  },
+  {
+    id : 4,
+    no : 5,
+    title : '공지5',
+    content : "공지5 내용",
+  },
+  {
+    id : 5,
+    no : 6,
+    title : '공지6',
+    content : "공지6 내용",
+  },
+  {
+    id : 6,
+    no : 7,
+    title : '공지7',
+    content : "공지7 내용",
+  },
+  {
+    id : 7,
+    no : 8,
+    title : '공지8',
+    content : "공지8 내용",
+  },
+  {
+    id : 8,
+    no : 9,
+    title : '공지9',
+    content : "공지9 내용",
+  },
+  {
+    id : 9,
+    no : 10,
+    title : '공지10',
+    content : "공지10 내용",
+  },
+  {
+    id : 10,
+    no : 11,
+    title : '공지11',
+    content : "공지11 내용",
+  },
+  {
+    id : 11,
+    no : 12,
+    title : '공지12',
+    content : "공지12 내용",
+  },
+  {
+    id : 12,
+    no : 13,
+    title : '공지13',
+    content : "공지13 내용",
+  },
+  {
+    id : 13,
+    no : 14,
+    title : '공지14',
+    content : "공지14 내용",
+  },
+  {
+    id : 14,
+    no : 15,
+    title : '공지15',
+    content : "공지15 내용",
+  },
+  {
+    id : 15,
+    no : 16,
+    title : '공지16',
+    content : "공지16 내용",
+  },
+  {
+    id : 16,
+    no : 17,
+    title : '공지17',
+    content : "공지17 내용",
+  },
+  {
+    id : 17,
+    no : 18,
+    title : '공지18',
+    content : "공지18 내용",
+  },
+  {
+    id : 18,
+    no : 19,
+    title : '공지19',
+    content : "공지19 내용",
+  },
+  {
+    id : 19,
+    no : 20,
+    title : '공지20',
+    content : "공지20 내용",
+  },
+  {
+    id : 20,
+    no : 21,
+    title : '공지21',
+    content : "공지21 내용",
+  },
+  {
+    id : 21,
+    no : 22,
+    title : '공지22',
+    content : "공지22 내용",
+  },
+  {
+    id : 22,
+    no : 23,
+    title : '공지23',
+    content : "공지23 내용",
+  },
+]
+
+export default noticeData;

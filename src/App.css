@@ -1,0 +1,2643 @@
+@charset "UTF-8";
+ul {
+  list-style-type: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+body::-webkit-scrollbar {
+  width: 6px; /* 스크롤바의 너비 */
+}
+
+body::-webkit-scrollbar-thumb {
+  height: 10%; /* 스크롤바의 길이 */
+  background: rgba(255, 255, 255, 0.3); /*스크롤바의 색상 */
+  border-radius: 10px;
+}
+
+body::-webkit-scrollbar-track {
+  background: rgb(0, 0, 0); /*스크롤바 뒷 배경 색상*/
+}
+
+.App {
+  background-color: #000;
+  color: white;
+  cursor: default;
+}
+
+.inputs {
+  text-align: center;
+  position: relative;
+  margin: auto;
+  margin-top: 100px;
+  width: 800px;
+}
+.inputs .inputName {
+  position: absolute;
+  left: 40px;
+}
+.inputs .inputBox {
+  margin: 30px 0;
+  width: 275px;
+  margin-left: 296px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.inputs .inputBox input {
+  width: 206px;
+  height: 22px;
+  padding: 0;
+  border: solid 1px black;
+  text-align: center;
+}
+.inputs .inputBox select {
+  width: 208px;
+  height: 24px;
+  padding: 0;
+  border: solid 1px black;
+  text-align: center;
+}
+.inputs .inputBox textarea {
+  width: 206px;
+  height: 70px;
+  padding: 0;
+  border: solid 1px black;
+}
+.inputs .inputBox .checkbox {
+  margin-right: 15px;
+}
+.inputs .inputBox .checkbox input {
+  height: auto;
+  width: auto;
+  margin: 0;
+  margin-right: 4px;
+  cursor: pointer;
+}
+.inputs .inputBox .checkbox span {
+  font-size: 15px;
+  cursor: pointer;
+}
+.inputs .inputBox .dateInput {
+  display: flex;
+  flex-direction: row;
+  width: 300px;
+}
+.inputs .inputBox .dateInput span {
+  margin: 0 10px;
+}
+.inputs .inputBox .dateInput input {
+  width: 120px;
+}
+.inputs .inputBox .addBtns {
+  transform: translateX(208px);
+  position: absolute;
+  background-color: #fff;
+  height: 24px;
+  border: solid 1px black;
+}
+.inputs .addedDatas {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  transform: translate(-10px, 14px);
+  width: 800px;
+}
+.inputs .addedDatas .addedDataBox {
+  background-color: #fff;
+  color: #000;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  width: 120px;
+  height: 19px;
+  border: 1px solid black;
+  margin: 5px;
+}
+.inputs .addedDatas .addedDataBox .addedData {
+  color: #000;
+  font-size: small;
+  width: 100px;
+  transform: translateX(10px);
+}
+.inputs .addedDatas .addedDataBox .delBtn {
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+}
+
+.upload {
+  width: 800px;
+  margin-top: 150px;
+  margin: 0 auto;
+  text-align: center;
+}
+.upload .uploadBtn {
+  text-align: center;
+  height: 40px;
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+.modalOut {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 9998;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+header {
+  width: 100%;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0);
+  z-index: 8888;
+}
+header .logo {
+  position: absolute;
+  left: 60px;
+  top: 10px;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+}
+@media (min-width: 1280px) {
+  header .logo .logoIcon {
+    width: 100px;
+  }
+}
+@media (max-width: 1280px) and (min-width: 768px) {
+  header .logo .logoIcon {
+    width: 60px;
+  }
+}
+@media (max-width: 768px) {
+  header .logo .logoIcon {
+    width: 40px;
+  }
+}
+header nav button {
+  position: absolute;
+  top: 20px;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  color: white;
+}
+header nav .search {
+  right: 15vw;
+}
+header nav .search .searchIcon {
+  width: 25.32px;
+}
+header nav .menu {
+  right: 6.25vw;
+}
+header nav .menu .menuIcon {
+  width: 21.17px;
+}
+header .searchModal {
+  position: absolute;
+  right: 15vw;
+  top: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  border: solid 2px white;
+  border-radius: 12px;
+  background-color: #000;
+  z-index: 9999;
+}
+header .searchModal .searchInput {
+  position: relative;
+  width: 300px;
+  height: 35px;
+  border-bottom: 2px solid white;
+}
+header .searchModal .searchInput .searchText {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  color: #fff;
+  border: none;
+  outline: none;
+}
+header .searchModal .searchInput .searchBtn {
+  position: absolute;
+  top: 55%;
+  right: 0;
+  transform: translate(0, -50%);
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+}
+header .searchModal .searchInput .searchBtn .searchBtnIcon {
+  width: 30px;
+}
+header .searchModal .words .wordsBtns {
+  display: flex;
+  flex-direction: row;
+  width: 300px;
+  border-bottom: 2px solid white;
+}
+header .searchModal .words .wordsBtns button {
+  width: 50%;
+  height: 40px;
+  background-color: #000;
+  color: #fff;
+  border: solid 5px black;
+  border-radius: 12px;
+  font-size: medium;
+}
+header .searchModal .words .wordsBtns .selectedBtn {
+  background-color: #fff;
+  color: #000;
+}
+header .searchModal .wordList {
+  text-align: center;
+  color: #fff;
+}
+header .searchModal .wordList .word {
+  margin: 10px 0;
+}
+header .searchModal .wordList .word button {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  color: #fff;
+}
+header .menuModal {
+  background-color: #404040;
+  width: 120px;
+  position: absolute;
+  right: 3vw;
+  top: 40px;
+  padding: 0;
+  z-index: 9997;
+}
+header .menuModal button {
+  width: 100%;
+  padding: 10px 0;
+  margin-top: -1px;
+  border: 1px solid black;
+  border-collapse: collapse;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0);
+  color: #fff;
+}
+header .menuModalOut {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 9996;
+  background-color: rgba(0, 0, 0, 0);
+}
+header .loginModal {
+  width: 700px;
+  height: 600px;
+  position: relative;
+  margin: 10vh auto;
+  border: none;
+  border-radius: 30px;
+  background-color: #000;
+  color: #fff;
+  z-index: 9999;
+}
+header .loginModal .closeBtn {
+  position: absolute;
+  top: 31.67px;
+  right: 31.67px;
+  width: 18px;
+  height: 18px;
+  background-color: rgba(0, 0, 0, 0);
+  color: #fff;
+  border: none;
+  padding: 0;
+}
+header .loginModal .backBtn {
+  position: absolute;
+  top: 31.67px;
+  left: 31.67px;
+  width: 18px;
+  height: 18px;
+  background-color: rgba(0, 0, 0, 0);
+  color: #fff;
+  border: none;
+  padding: 0;
+}
+header .loginModal .login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+header .loginModal .login .loginTitle {
+  margin-top: 80px;
+  margin-bottom: 62px;
+  font-weight: 500;
+  font-size: 40px;
+}
+header .loginModal .login .warnning {
+  height: 16px;
+  font-size: 12px;
+  color: red;
+  transform: translateY(-20px);
+}
+header .loginModal .login .hidedWarnning {
+  height: 16px;
+}
+header .loginModal .login .loginInput {
+  width: 400px;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0);
+  color: #fff;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #666666;
+  margin: 0 150px;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+header .loginModal .login .saveId {
+  width: 100px;
+  height: 24px;
+  align-self: flex-start;
+  margin-left: 150px;
+  font-size: 12px;
+}
+header .loginModal .login .loginBtn {
+  width: 140px;
+  height: 60px;
+  margin-top: 66px;
+  border: none;
+  border-radius: 12px;
+  background-color: #fff;
+  font-weight: 600;
+  font-size: 26px;
+}
+header .loginModal .login .findBtn {
+  height: 24px;
+  margin-top: 14px;
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+  color: #9D9D9D;
+  font-weight: 500;
+  font-size: 12px;
+}
+header .loginModal .login .RUMember {
+  width: 192px;
+  height: 16px;
+  padding: 0;
+  margin-top: 61px;
+  display: flex;
+  flex-direction: row;
+}
+header .loginModal .login .RUMember span {
+  width: 132px;
+  font-weight: 500;
+  font-size: 12px;
+  color: #9D9D9D;
+}
+header .loginModal .login .RUMember button {
+  margin-left: 12px;
+  width: 48px;
+  background-color: rgba(0, 0, 0, 0);
+  padding: 0;
+  font-weight: 600;
+  font-size: 12px;
+  color: #fff;
+  border: none;
+}
+header .loginModal .find {
+  width: 600px;
+  height: 286px;
+  margin: 0 auto;
+  transform: translateY(143px);
+  text-align: center;
+  border: solid 2px #4A4A4A;
+  border-radius: 12px;
+}
+header .loginModal .find .confirmBtns {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 73px;
+}
+header .loginModal .find .confirmBtns button {
+  width: 140px;
+  height: 140px;
+  background-color: #1C1C1C;
+  border: none;
+  border-radius: 30px;
+}
+header .loginModal .find .confirmBtns .confirmWay {
+  margin-top: 8px;
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.backButton {
+  position: fixed;
+  top: 5px;
+  left: 5px;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+}
+
+footer {
+  padding: 120px 0;
+  text-align: center;
+  font-weight: 600;
+  background-color: #000;
+}
+@media (min-width: 1280px) {
+  footer .menu {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 600px;
+    margin: 0 auto;
+    justify-content: center;
+  }
+  footer .menu span {
+    padding: 0 40px;
+    border-collapse: collapse;
+    margin: 5px 0;
+    margin-left: -1px;
+    border-left: solid 1px white;
+    border-right: solid 1px white;
+  }
+}
+@media (max-width: 1280px) and (min-width: 768px) {
+  footer .menu {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 600px;
+    margin: 0 auto;
+    justify-content: center;
+  }
+  footer .menu span {
+    padding: 0 40px;
+    border-collapse: collapse;
+    margin: 5px 0;
+    margin-left: -1px;
+    border-left: solid 1px white;
+    border-right: solid 1px white;
+  }
+}
+@media (max-width: 768px) {
+  footer .menu {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 355.987px;
+    margin: 0 auto;
+    justify-content: center;
+  }
+  footer .menu span {
+    padding: 0 15px;
+    border-collapse: collapse;
+    margin: 5px 0;
+    margin-left: -1px;
+    border-left: solid 1px white;
+    border-right: solid 1px white;
+  }
+}
+
+main {
+  width: 100%;
+  overflow: hidden;
+}
+main .home {
+  gap: 34px;
+}
+main .home ul {
+  padding: 0;
+}
+main .home .hero {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  flex-shrink: 0;
+  align-self: stretch;
+}
+@media (min-width: 1280px) {
+  main .home .hero {
+    height: 800px;
+    padding-right: 0px;
+    border-radius: 0px 0px 100px 100px;
+  }
+}
+@media (max-width: 1280px) and (min-width: 768px) {
+  main .home .hero {
+    height: 600px;
+  }
+}
+@media (max-width: 768px) {
+  main .home .hero {
+    height: 400px;
+  }
+}
+main .home .hero .heroImg {
+  position: absolute;
+  background: url(C:Usersnim02UNDERGROUND\c lient\f rontendpublic\a ssets/heroImg.png), lightgray 50%/cover no-repeat;
+}
+@media (min-width: 1280px) {
+  main .home .hero .heroImg {
+    width: 1920px;
+    height: 800px;
+  }
+}
+@media (max-width: 1280px) and (min-width: 768px) {
+  main .home .hero .heroImg {
+    width: 1377.149px;
+    height: 600px;
+  }
+}
+@media (max-width: 768px) {
+  main .home .hero .heroImg {
+    width: 924.985px;
+    height: 400px;
+  }
+}
+main .home .movieLists {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  align-self: stretch;
+}
+@media (min-width: 1280px) {
+  main .home .movieLists {
+    gap: 40px;
+    flex-shrink: 0;
+  }
+}
+@media (max-width: 1280px) and (min-width: 768px) {
+  main .home .movieLists {
+    gap: 40px;
+    flex: 1 0 0;
+  }
+}
+@media (max-width: 768px) {
+  main .home .movieLists {
+    gap: 20px;
+    flex: 1 0 0;
+  }
+}
+main .home .movieLists .movieList {
+  display: flex;
+  align-self: stretch;
+  flex-direction: column;
+  align-items: flex-start;
+}
+@media (min-width: 1280px) {
+  main .home .movieLists .movieList {
+    padding: 0px 55px 0px 65px;
+    gap: 0px;
+  }
+}
+@media (max-width: 1280px) and (min-width: 768px) {
+  main .home .movieLists .movieList {
+    padding: 0px 46px;
+    gap: 6px;
+  }
+}
+@media (max-width: 768px) {
+  main .home .movieLists .movieList {
+    padding: 0px 20px 0px 15px;
+    gap: 6px;
+  }
+}
+main .home .movieLists .movieList .voidReducedTag {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+}
+@media (min-width: 1280px) {
+  main .home .movieLists .movieList .voidReducedTag {
+    width: 1800px;
+  }
+}
+@media (max-width: 1280px) and (min-width: 768px) {
+  main .home .movieLists .movieList .voidReducedTag {
+    width: 768px;
+  }
+}
+@media (max-width: 768px) {
+  main .home .movieLists .movieList .voidReducedTag {
+    width: 360px;
+  }
+}
+main .home .movieLists .movieList .voidReducedTag .blank {
+  display: flex;
+  width: 100px;
+  height: 40px;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  color: #FFF;
+  text-align: center;
+  font-family: Noto Sans;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+main .home .movieLists .movieList .voidReducedTag .scrollBtn, main .home .movieLists .movieList .voidReducedTag .movieScroll .nextBtn, main .home .movieLists .movieList .movieScroll .voidReducedTag .nextBtn, main .home .movieLists .movieList .voidReducedTag .movieScroll .prevBtn, main .home .movieLists .movieList .movieScroll .voidReducedTag .prevBtn {
+  display: flex; /* 이미지를 플렉스 박스로 설정 */
+  align-items: center; /* 이미지를 세로 중앙 정렬 */
+  width: 40px;
+  height: 40px;
+  stroke-width: 1px;
+  stroke: rgba(255, 255, 255, 0.2);
+}
+main .home .movieLists .movieList .reducedTag {
+  width: 100%;
+  height: 50px;
+  margin-left: 10px;
+  display: flex;
+}
+main .home .movieLists .movieList .reducedTag .tagIcon {
+  width: 50px;
+}
+main .home .movieLists .movieList .reducedTag .tagName {
+  height: 50px;
+  line-height: 50px;
+}
+main .home .movieLists .movieList .movieScroll {
+  overflow-x: scroll;
+  display: flex;
+  flex-direction: row;
+  width: 1920px;
+  align-items: flex-start;
+  gap: 10px;
+}
+@media (min-width: 1280px) {
+  main .home .movieLists .movieList .movieScroll {
+    height: 163px;
+  }
+}
+@media (max-width: 1280px) and (min-width: 768px) {
+  main .home .movieLists .movieList .movieScroll {
+    height: 124px;
+  }
+}
+@media (max-width: 768px) {
+  main .home .movieLists .movieList .movieScroll {
+    height: 90px;
+  }
+}
+main .home .movieLists .movieList .movieScroll .tag {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+@media (min-width: 1280px) {
+  main .home .movieLists .movieList .movieScroll .tag {
+    width: 140px;
+    height: 163px;
+  }
+}
+@media (max-width: 1280px) and (min-width: 768px) {
+  main .home .movieLists .movieList .movieScroll .tag {
+    width: 106px;
+    height: 117px;
+  }
+}
+@media (max-width: 768px) {
+  main .home .movieLists .movieList .movieScroll .tag {
+    width: 50px;
+    height: 90px;
+  }
+}
+main .home .movieLists .movieList .movieScroll .tag .tagIcon {
+  display: flex;
+  width: 49.943px;
+  height: 73.99px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+@media (max-width: 768px) {
+  main .home .movieLists .movieList .movieScroll .tag .tagIcon {
+    width: 31.214px;
+    height: 46.244px;
+  }
+}
+main .home .movieLists .movieList .movieScroll .tag .tagName {
+  display: flex;
+  padding: 2px 0px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  align-self: stretch;
+  color: #FFF;
+  text-align: center;
+  font-family: Noto Sans;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+@media (max-width: 768px) {
+  main .home .movieLists .movieList .movieScroll .tag .tagName {
+    font-size: 10px;
+  }
+}
+main .home .movieLists .movieList .movieScroll .scrollBtn, main .home .movieLists .movieList .movieScroll .nextBtn, main .home .movieLists .movieList .movieScroll .prevBtn {
+  position: absolute;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.3);
+  border: none;
+  z-index: 7777;
+}
+@media (min-width: 1280px) {
+  main .home .movieLists .movieList .movieScroll .scrollBtn, main .home .movieLists .movieList .movieScroll .nextBtn, main .home .movieLists .movieList .movieScroll .prevBtn {
+    height: 163px;
+    font-size: x-large;
+  }
+}
+@media (max-width: 1280px) and (min-width: 768px) {
+  main .home .movieLists .movieList .movieScroll .scrollBtn, main .home .movieLists .movieList .movieScroll .nextBtn, main .home .movieLists .movieList .movieScroll .prevBtn {
+    height: 124px;
+    font-size: x-large;
+  }
+}
+@media (max-width: 768px) {
+  main .home .movieLists .movieList .movieScroll .scrollBtn, main .home .movieLists .movieList .movieScroll .nextBtn, main .home .movieLists .movieList .movieScroll .prevBtn {
+    height: 60px;
+    font-size: small;
+  }
+}
+main .home .movieLists .movieList .movieScroll .prevBtn {
+  left: 0;
+}
+main .home .movieLists .movieList .movieScroll .nextBtn {
+  right: 0;
+}
+main .home .movieLists .movieList .movieScroll .movie {
+  position: relative;
+}
+main .home .movieLists .movieList .movieScroll .movie .moviePoster {
+  flex-shrink: 0;
+  border-radius: 20px;
+}
+@media (min-width: 1280px) {
+  main .home .movieLists .movieList .movieScroll .movie .moviePoster {
+    width: 290px;
+    height: 163px;
+  }
+}
+@media (max-width: 1280px) and (min-width: 768px) {
+  main .home .movieLists .movieList .movieScroll .movie .moviePoster {
+    width: 220px;
+    height: 124px;
+  }
+}
+@media (max-width: 768px) {
+  main .home .movieLists .movieList .movieScroll .movie .moviePoster {
+    width: 160px;
+    height: 90px;
+    border-radius: 15.384px;
+  }
+}
+main .home .movieLists .movieList .movieScroll .movie:hover .layer {
+  display: block;
+}
+main .home .movieLists .movieList .movieScroll .movie:hover .movieInfo {
+  display: flex;
+}
+main .home .movieLists .movieList .movieScroll .movie .layer {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 0.7) 100%);
+}
+main .home .movieLists .movieList .movieScroll .movie .movieInfo {
+  display: none;
+}
+main .home .movieLists .movieList .movieScroll .movie .movieInfo .title {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+}
+main .home .movieLists .movieList .movieScroll .movie .movieInfo .movieMenu {
+  position: absolute;
+  bottom: 15px;
+  right: 10px;
+  display: flex;
+  flex-direction: row;
+}
+main .home .movieLists .movieList .movieScroll .movie .movieInfo .movieMenu button {
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
+  border: none;
+}
+main .home .movieLists .movieList .movieScroll .movie .movieInfo .movieMenu button .keepBtnIcon {
+  width: 17.92px;
+}
+main .home .movieLists .movieList .movieScroll .movie .movieInfo .movieMenu button .detailBtnIcon {
+  width: 13.33px;
+}
+main .home .movieLists .movieList ::-webkit-scrollbar {
+  display: none;
+}
+main .home .detailModal {
+  background-color: #000;
+  position: fixed;
+  border: none;
+  border-radius: 40px;
+  top: 5%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 800px;
+  height: 836px;
+  z-index: 9999;
+}
+main .home .detailModal .closeBtn {
+  position: absolute;
+  top: 31.67px;
+  right: 31.67px;
+  width: 18px;
+  height: 18px;
+  background-color: rgba(0, 0, 0, 0);
+  color: #fff;
+  border: none;
+  padding: 0;
+}
+main .home .detailModal .detailImg {
+  width: 100%;
+  border-radius: 40px 40px 0 0;
+}
+main .home .detailModal .playBtn {
+  position: absolute;
+  top: 38.5%;
+  right: 92%;
+  background-color: rgba(0, 0, 0, 0);
+  color: #fff;
+  border: none;
+}
+main .home .detailModal .keepBtn {
+  position: absolute;
+  top: 38.5%;
+  left: 94%;
+  background-color: rgba(0, 0, 0, 0);
+  color: #fff;
+  border: none;
+}
+main .home .detailModal .detailInfo {
+  width: 100%;
+}
+main .home .detailModal .detailInfo .topInfo {
+  height: 80px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 40px;
+}
+main .home .detailModal .detailInfo .topInfo .score .fillScore {
+  position: absolute;
+  height: 21px;
+  z-index: 1;
+}
+main .home .detailModal .detailInfo .topInfo .score .fillScore .starContainer {
+  float: left;
+  width: 14px;
+  margin: 0 1px;
+}
+main .home .detailModal .detailInfo .topInfo .score .fillScore .starContainer .star {
+  float: left;
+  color: yellow;
+  overflow: hidden;
+  transform: translateX(-1.2px);
+}
+main .home .detailModal .detailInfo .topInfo .score .baseScore {
+  height: 21px;
+}
+main .home .detailModal .detailInfo .topInfo .score .baseScore .starContainer {
+  float: left;
+  width: 14px;
+  margin: 0 1px;
+}
+main .home .detailModal .detailInfo .topInfo .score .baseScore .starContainer .star {
+  float: left;
+  color: grey;
+  transform: translateX(-1.2px);
+}
+main .home .detailModal .detailInfo .bodyInfo {
+  padding: 0 20px;
+  margin-top: 30px;
+  font-weight: 700;
+  font-size: 14px;
+}
+main .home .detailModal .detailInfo .bodyInfo .otherInfo {
+  color: #A7A7A7;
+}
+main .home .gradiant {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 120px;
+  z-index: 6666;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%);
+}
+main .find {
+  width: 600px;
+  height: 400px;
+  text-align: center;
+  margin: auto;
+  margin-top: 150px;
+  margin-bottom: 50px;
+  border: solid 2px white;
+  border-radius: 12px;
+}
+main .find .findBtns {
+  padding: 0;
+  border-bottom: solid 2px white;
+}
+main .find .findBtns button {
+  width: 50%;
+  height: 40px;
+  font-size: large;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+}
+main .find .findBtns .selectedFindBtn {
+  background-color: #fff;
+  color: #000;
+  border: solid 5px black;
+}
+main .find .confirmBtns {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  height: 358px;
+}
+main .find .confirmBtns button {
+  width: 150px;
+  height: 150px;
+  background-color: black;
+  border: solid 2px white;
+  border-radius: 12px;
+}
+main .signin {
+  text-align: center;
+}
+main .signin h1 {
+  margin-top: 100px;
+}
+main .signin .inputs {
+  width: 800px;
+  margin: auto;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+main .signin .inputs .inputBox {
+  margin: 30px 0;
+}
+main .signin .inputs .inputBox .inputName {
+  position: absolute;
+  left: 200px;
+}
+main .signin .inputs .inputBox input {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+}
+main .signin .inputs .inputBox select {
+  position: absolute;
+  left: 50%;
+  transform: translateX(105px);
+  width: 150px;
+}
+main .signin .inputs .inputBox .rhfqoddl {
+  position: absolute;
+  left: 50%;
+  transform: translateX(85px);
+}
+main .signin .inputs .inputBox .confirmNumBtn {
+  position: absolute;
+  top: 28px;
+  right: 30px;
+  background-color: #fff;
+  border-radius: 8px;
+}
+main .signin .inputs .inputBox .confirmBtn {
+  position: absolute;
+  top: 88px;
+  right: 260px;
+  background-color: #fff;
+  border-radius: 8px;
+}
+main .signin .inputs .inputBox .checkboxContainer {
+  margin: auto;
+  height: 18px;
+  width: 400px;
+  transform: translateX(30px);
+}
+main .signin .inputs .inputBox .checkboxContainer input {
+  position: static;
+  width: 13px;
+  transform: translate(2px, 2px);
+  margin-left: 10px;
+}
+main .signin .inputs .inputBox .checkboxContainer .checkboxName {
+  font-size: smaller;
+}
+main .player {
+  display: flex;
+  height: 2893.618px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 40px;
+  flex-shrink: 0;
+  align-self: stretch;
+}
+@media (min-width: 1280px) {
+  main .player .playerdetail {
+    display: flex;
+    padding: 0px 65px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
+    align-self: stretch;
+  }
+}
+@media (max-width: 1280px) and (min-width: 768px) {
+  main .player .playerdetail {
+    display: flex;
+    padding: 0px 34px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
+    align-self: stretch;
+  }
+}
+@media (max-width: 768px) {
+  main .player .playerdetail {
+    display: flex;
+    padding: 0px 15px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
+    align-self: stretch;
+  }
+}
+main .player .playermain {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  align-self: stretch;
+}
+@media (max-width: 768px) {
+  main .player .playermain {
+    gap: 6px;
+  }
+}
+main .player .playermain .space {
+  flex: 1; /* 중간 공간 차지 */
+}
+main .player .playermain .playertitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+}
+main .player .playermain .playertitle .leftInfo {
+  display: flex;
+  align-items: center;
+}
+@media (min-width: 1280px) {
+  main .player .playermain .playertitle .leftInfo {
+    gap: 20px;
+  }
+}
+@media (max-width: 1280px) and (min-width: 768px) {
+  main .player .playermain .playertitle .leftInfo {
+    gap: 10px;
+  }
+}
+@media (max-width: 768px) {
+  main .player .playermain .playertitle .leftInfo {
+    gap: 6px;
+  }
+}
+main .player .playermain .playertitle .leftInfo .title {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  color: #FFF;
+  text-align: center;
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+@media (min-width: 1280px) {
+  main .player .playermain .playertitle .leftInfo .title {
+    width: auto;
+    height: 80px;
+    font-size: 60px;
+  }
+}
+@media (max-width: 1280px) and (min-width: 768px) {
+  main .player .playermain .playertitle .leftInfo .title {
+    width: auto;
+    height: auto;
+    font-size: 40px;
+  }
+}
+@media (max-width: 768px) {
+  main .player .playermain .playertitle .leftInfo .title {
+    width: auto;
+    height: 30px;
+    font-size: 20px;
+  }
+}
+@media (min-width: 1280px) {
+  main .player .playermain .playertitle .leftInfo .laurel {
+    display: flex;
+    width: 40px;
+    height: 40px;
+    padding: 5.714px 1.843px 5.847px 1.71px;
+    justify-content: center;
+    align-items: center;
+  }
+}
+@media (max-width: 1280px) and (min-width: 768px) {
+  main .player .playermain .playertitle .leftInfo .laurel {
+    display: flex;
+    width: 30px;
+    height: 30px;
+    padding: 4.286px 1.382px 4.385px 1.282px;
+    justify-content: center;
+    align-items: center;
+  }
+}
+@media (max-width: 768px) {
+  main .player .playermain .playertitle .leftInfo .laurel {
+    display: flex;
+    width: 20px;
+    height: 20px;
+    padding: 2.857px 0.922px 2.924px 0.855px;
+    justify-content: center;
+    align-items: center;
+  }
+}
+@media (min-width: 1280px) {
+  main .player .playermain .playertitle .leftInfo .laurel .paidservices {
+    width: 36.447px;
+    height: 28.439px;
+    flex-shrink: 0;
+  }
+}
+@media (max-width: 1280px) and (min-width: 768px) {
+  main .player .playermain .playertitle .leftInfo .laurel .paidservices {
+    width: 27.335px;
+    height: 21.329px;
+    flex-shrink: 0;
+  }
+}
+@media (max-width: 768px) {
+  main .player .playermain .playertitle .leftInfo .laurel .paidservices {
+    width: 18.223px;
+    height: 14.219px;
+    flex-shrink: 0;
+  }
+}
+main .player .playermain .playertitle .rightInfo {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+@media (max-width: 768px) {
+  main .player .playermain .playertitle .rightInfo {
+    gap: 0px;
+  }
+}
+@media (min-width: 1280px) {
+  main .player .playermain .playertitle .rightInfo .like, main .player .playermain .playertitle .rightInfo .redLike, main .player .playermain .playertitle .rightInfo .report2 {
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+  }
+}
+@media (max-width: 1280px) and (min-width: 768px) {
+  main .player .playermain .playertitle .rightInfo .like, main .player .playermain .playertitle .rightInfo .redLike, main .player .playermain .playertitle .rightInfo .report2 {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+  }
+}
+@media (max-width: 768px) {
+  main .player .playermain .playertitle .rightInfo .like, main .player .playermain .playertitle .rightInfo .redLike, main .player .playermain .playertitle .rightInfo .report2 {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+  }
+}
+main .player .playermain .plot {
+  display: flex;
+  width: 100%;
+  align-items: flex-start;
+  align-self: stretch;
+}
+@media (min-width: 1280px) {
+  main .player .playermain .plot {
+    justify-content: space-between;
+  }
+}
+@media (max-width: 1280px) and (min-width: 768px) {
+  main .player .playermain .plot {
+    gap: 24px;
+  }
+}
+@media (max-width: 768px) {
+  main .player .playermain .plot {
+    gap: 24px;
+  }
+}
+main .player .playermain .plot .smallplot {
+  display: flex;
+  width: 100%;
+  height: 70px;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+  flex: 1 0 0;
+}
+@media (max-width: 768px) {
+  main .player .playermain .plot .smallplot {
+    height: auto;
+  }
+}
+main .player .playermain .plot .smallplot .summary {
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* 최대 2줄 표시 */
+  -webkit-box-orient: vertical;
+  width: 100%;
+  height: 44px;
+  flex-shrink: 0;
+  align-self: stretch;
+  overflow: hidden;
+  color: #FFF;
+  text-overflow: ellipsis;
+  white-space: normal;
+  font-family: Noto Sans;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 22px; /* 157.143% */
+}
+@media (max-width: 768px) {
+  main .player .playermain .plot .smallplot .summary {
+    -webkit-line-clamp: 1;
+    height: 24px;
+    white-space: normal;
+    font-size: 8px;
+  }
+}
+main .player .playermain .plot .starunninghits {
+  display: flex;
+  height: 80px;
+  padding: 8px 0px;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+@media (max-width: 768px) {
+  main .player .playermain .plot .starunninghits {
+    height: auto;
+    gap: 4px;
+  }
+}
+main .player .playermain .plot .starunninghits .playerFillScore {
+  display: flex;
+  align-items: flex-start;
+  gap: 4px;
+  flex-shrink: 0;
+}
+@media (min-width: 1280px) {
+  main .player .playermain .plot .starunninghits .playerFillScore {
+    width: 139.091px;
+    height: 24.618px;
+  }
+}
+@media (max-width: 1280px) and (min-width: 768px) {
+  main .player .playermain .plot .starunninghits .playerFillScore {
+    width: 100px;
+    height: 18px;
+  }
+}
+@media (max-width: 768px) {
+  main .player .playermain .plot .starunninghits .playerFillScore {
+    width: 50px;
+    height: 9px;
+    gap: 2px;
+  }
+}
+main .player .playermain .plot .starunninghits .playerFillScore .playerStar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1 0 0;
+  align-self: stretch;
+}
+@media (min-width: 1280px) {
+  main .player .playermain .plot .starunninghits .playerFillScore .playerStar {
+    width: 24.62px;
+    height: 24.62px;
+  }
+}
+@media (max-width: 1280px) and (min-width: 768px) {
+  main .player .playermain .plot .starunninghits .playerFillScore .playerStar {
+    width: 16.801px;
+    height: 18.001px;
+  }
+}
+@media (max-width: 768px) {
+  main .player .playermain .plot .starunninghits .playerFillScore .playerStar {
+    width: 8.401px;
+    height: 9.001px;
+  }
+}
+main .player .playermain .plot .starunninghits .runninghits {
+  display: flex;
+  height: 28px;
+  flex-direction: column;
+  align-items: flex-end;
+  flex-shrink: 0;
+}
+@media (max-width: 768px) {
+  main .player .playermain .plot .starunninghits .runninghits {
+    width: 50px;
+    height: auto;
+  }
+}
+main .player .playermain .plot .starunninghits .runninghits .runningtime, main .player .playermain .plot .starunninghits .runninghits .hits {
+  color: #FFF;
+  text-align: center;
+  white-space: nowrap;
+  font-family: Noto Sans;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+@media (max-width: 768px) {
+  main .player .playermain .plot .starunninghits .runninghits .runningtime, main .player .playermain .plot .starunninghits .runninghits .hits {
+    font-size: 6px;
+  }
+}
+main .player .playermain .moreInfo {
+  display: flex;
+  height: 90px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2px;
+}
+main .player .playermain .moreInfo .date {
+  width: 128px;
+  height: 20px;
+  flex-shrink: 0;
+  color: #A7A7A7;
+  font-family: Noto Sans;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+main .player .playermain .moreInfo .direct {
+  width: 131px;
+  height: 20px;
+  flex-shrink: 0;
+  color: #A7A7A7;
+  font-family: Noto Sans;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+main .player .playermain .moreInfo .screenpaly {
+  width: 181px;
+  height: 20px;
+  flex-shrink: 0;
+  color: #A7A7A7;
+  font-family: Noto Sans;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+main .player .playermain .moreInfo .cast {
+  display: flex;
+  width: 300px;
+  height: 20px;
+  align-items: flex-start;
+  gap: 10px;
+  flex-shrink: 0;
+}
+main .player .playermain .moreInfo .cast .fullContent .showCast {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  flex: 1 0 0;
+  overflow: visible;
+  color: #A7A7A7;
+  text-overflow: ellipsis;
+  font-family: Noto Sans;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+main .player .playermain .moreInfo .cast .summaryContent .hideCast {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  flex: 1 0 0;
+  overflow: hidden;
+  color: #A7A7A7;
+  text-overflow: ellipsis;
+  font-family: Noto Sans;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+main .player .playermain .moreInfo .cast .more {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 9.96px;
+}
+main .player .playermain .moreInfo .cast .more .moreContent {
+  width: 42px;
+  height: 20px;
+  color: #535353;
+  text-align: right;
+  font-family: Noto Sans;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+main .player .playermain .moreInfo .cast .more .arrow-button {
+  background-color: #000000;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+main .player .playermain .moreInfo .cast .more .arrow-button .arrow {
+  width: 14.473px;
+  height: 8.492px;
+}
+main .player .videoContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+main .player .videoContent .likeContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+main .player .videoContent .likeContent .title {
+  color: #FFF;
+  text-align: center;
+  font-family: Noto Sans;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+main .player .videoContent .likeContent .movie {
+  display: flex;
+  padding: 6px 0px;
+  align-items: flex-start;
+  gap: 10px;
+}
+main .player .videoContainer {
+  position: relative;
+  width: 100%;
+  height: 39.975vw;
+}
+main .player .videoContainer .playerLayer {
+  background-color: rgba(0, 0, 0, 0);
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 7777;
+}
+main .player .videoContainer .cusorHidedPlayerLayer {
+  background-color: rgba(0, 0, 0, 0);
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 7777;
+  cursor: none;
+}
+main .player .videoContainer .controls {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: absolute;
+  bottom: 5px;
+  width: 100%;
+  height: 100%;
+}
+main .player .videoContainer .controls button {
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  color: #fff;
+}
+main .player .videoContainer .controls .topControls {
+  padding-top: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  z-index: 8888;
+}
+main .player .videoContainer .controls .reportModal {
+  position: absolute; /* 절대 위치로 설정합니다. */
+  top: 70px; /* 원하는 수직 위치로 조정합니다. */
+  right: 25px; /* 원하는 수평 위치로 조정합니다. */
+  display: flex;
+  width: 280px;
+  height: 297px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  background: #232323;
+}
+main .player .videoContainer .controls .reportModal .reportComment {
+  display: flex;
+  width: 278px;
+  height: 297px;
+  padding: 10px;
+  justify-content: space-between;
+  align-items: flex-start;
+  background: #232323;
+}
+main .player .videoContainer .controls .reportModal .reportComment .comment {
+  display: flex;
+  width: 190px;
+  height: 30px;
+  padding: 2px 10px;
+  align-items: center;
+  gap: 10px;
+  color: #F00;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+main .player .videoContainer .controls .reportModal .reportComment .xBtn {
+  width: 30px;
+  height: 30px;
+}
+main .player .videoContainer .controls .reportModal .BaL {
+  display: flex;
+  width: 237px;
+  height: 61px;
+  padding: 8.5px 43px 8.5px 18px;
+  align-items: center;
+  flex-shrink: 0;
+  background: #2D2D2D;
+}
+main .player .videoContainer .controls .reportModal .SaC {
+  display: flex;
+  width: 179px;
+  height: 62px;
+  padding: 9px 101px 9px 18px;
+  align-items: center;
+  flex-shrink: 0;
+  background: #2D2D2D;
+}
+main .player .videoContainer .controls .reportModal .VaV {
+  display: flex;
+  width: 226px;
+  height: 62px;
+  padding: 11px 54px 11px 18px;
+  align-items: center;
+  flex-shrink: 0;
+  background: #2D2D2D;
+}
+main .player .videoContainer .controls .reportModal .etc {
+  display: flex;
+  width: 127px;
+  height: 62px;
+  padding: 11px 153px 11px 18px;
+  align-items: center;
+  flex-shrink: 0;
+  background: #2D2D2D;
+}
+main .player .videoContainer .controls .reportModal button {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+main .player .videoContainer .controls .reportModal button .title {
+  display: flex;
+  height: 24px;
+  align-items: center;
+  flex-shrink: 0;
+  color: #FFF;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+main .player .videoContainer .controls .reportModal button .detail {
+  display: flex;
+  height: 20px;
+  align-items: center;
+  flex-shrink: 0;
+  color: #A7A7A7;
+  font-family: Inter;
+  font-size: 9px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+main .player .videoContainer .controls .centerPlayPauseBtn {
+  margin: auto;
+  background-color: rgba(0, 0, 0, 0.3);
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: none;
+  z-index: 8888;
+}
+main .player .videoContainer .controls .bottomControls {
+  display: flex;
+  flex-direction: column;
+  z-index: 8888;
+  margin-bottom: -5px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+main .player .videoContainer .controls .bottomControls .timeControl {
+  margin: auto;
+}
+main .player .videoContainer .controls .bottomControls .timeControl .timeSlider {
+  margin: auto;
+}
+@media (min-width: 1280px) {
+  main .player .videoContainer .controls .bottomControls .timeControl .timeSlider {
+    width: 99vw;
+  }
+}
+@media (max-width: 1280px) and (min-width: 768px) {
+  main .player .videoContainer .controls .bottomControls .timeControl .timeSlider {
+    width: 98vw;
+  }
+}
+main .player .videoContainer .controls .bottomControls .bottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+main .player .videoContainer .controls .bottomControls .bottom .leftControls {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+main .player .videoContainer .controls .bottomControls .bottom .leftControls .playPauseControl .playPauseBtn {
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+}
+main .player .videoContainer .controls .bottomControls .bottom .leftControls .backwardForwardControl {
+  display: flex;
+  flex-direction: row;
+}
+main .player .videoContainer .controls .bottomControls .bottom .leftControls .volumeControl .volumeSlider {
+  width: 50px;
+}
+main .player .videoContainer .controls .bottomControls .bottom .leftControls .timeInfo {
+  margin-left: 10px;
+  padding-bottom: 3px;
+}
+main .player .videoContainer .controls .bottomControls .bottom .rightControls {
+  display: flex;
+  flex-direction: row;
+  padding-top: 2px;
+}
+main .player .videoContainer .controls .bottomControls .bottom .rightControls .playbackRateControl {
+  width: 70px;
+}
+main .player .videoContainer .controls .bottomControls .bottom .rightControls .playbackRateControl .playbackRateModal {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  bottom: 40px;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 70px;
+}
+main .player .videoContainer .controls .bottomControls .bottom .rightControls .playbackRateControl .playbackRateModal button {
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  color: #fff;
+  width: 70px;
+  height: 25px;
+}
+main .player .videoContainer .controls .bottomControls .bottom .rightControls .playbackRateControl .playbackRateModal button .playbackRateCheck {
+  position: absolute;
+  left: 2px;
+}
+main .player .videoContainer .controls .bottomControls .bottom .rightControls .fullScreenControl {
+  padding-top: 2px;
+}
+main .search {
+  display: flex;
+  padding: 70px 0px;
+  flex-direction: column;
+  align-items: center;
+  gap: 60px;
+  align-self: stretch;
+}
+@media (max-width: 768px) {
+  main .search {
+    display: flex;
+    padding: 70px 0px;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    align-self: stretch;
+  }
+}
+main .search .searchWord {
+  display: flex;
+  width: 1200px;
+  justify-content: center;
+  align-items: flex-start;
+  color: #FFF;
+  text-align: center;
+  font-family: Noto Sans;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+@media (max-width: 768px) {
+  main .search .searchWord {
+    display: flex;
+    width: 360px;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    color: #FFF;
+    text-align: center;
+    font-family: Noto Sans;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+}
+main .search .comment {
+  height: 20vh;
+  margin-top: 150px;
+  text-align: center;
+}
+@media (min-width: 1280px) {
+  main .search .searchedMovieList {
+    display: flex;
+    width: 1200px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 60px;
+  }
+}
+@media (max-width: 1280px) and (min-width: 768px) {
+  main .search .searchedMovieList {
+    display: flex;
+    padding: 0px 34px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 60px;
+    align-self: stretch;
+  }
+}
+@media (max-width: 768px) {
+  main .search .searchedMovieList {
+    display: flex;
+    width: 360px;
+    padding: 0px 15px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 60px;
+  }
+}
+main .search .searchedMovieList .searchedMovie {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  align-self: stretch;
+  gap: 24px;
+  cursor: pointer;
+}
+@media (min-width: 1280px) {
+  main .search .searchedMovieList .searchedMovie {
+    height: 160px;
+    padding: 6px 0px;
+  }
+}
+@media (max-width: 1280px) and (min-width: 768px) {
+  main .search .searchedMovieList .searchedMovie {
+    height: 124px;
+    padding: 6px 0px;
+  }
+}
+@media (max-width: 768px) {
+  main .search .searchedMovieList .searchedMovie {
+    width: 100%;
+    justify-content: center;
+  }
+}
+@media (min-width: 1280px) {
+  main .search .searchedMovieList .searchedMovie .searchedMovieImg .moviePoster {
+    display: flex;
+    width: 281.473px;
+    height: 159px;
+    justify-content: flex-end;
+    align-items: center;
+    border-radius: 16px;
+  }
+}
+@media (max-width: 1280px) and (min-width: 768px) {
+  main .search .searchedMovieList .searchedMovie .searchedMovieImg .moviePoster {
+    display: flex;
+    width: 220px;
+    height: 124px;
+    justify-content: flex-end;
+    align-items: center;
+    border-radius: 16px;
+  }
+}
+@media (max-width: 768px) {
+  main .search .searchedMovieList .searchedMovie .searchedMovieImg .moviePoster {
+    display: flex;
+    width: 218px;
+    height: 122px;
+    justify-content: flex-end;
+    align-items: center;
+    border-radius: 16px;
+  }
+}
+main .search .searchedMovieList .searchedMovie .searchedMovieInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex: 1 0 0;
+}
+@media (min-width: 1280px) {
+  main .search .searchedMovieList .searchedMovie .searchedMovieInfo {
+    align-self: stretch;
+  }
+}
+@media (max-width: 1280px) and (min-width: 768px) {
+  main .search .searchedMovieList .searchedMovie .searchedMovieInfo {
+    height: 124px;
+  }
+}
+@media (max-width: 768px) {
+  main .search .searchedMovieList .searchedMovie .searchedMovieInfo {
+    display: none;
+  }
+}
+main .search .searchedMovieList .searchedMovie .searchedMovieInfo .movieTitle {
+  color: #FFF;
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+@media (min-width: 1280px) {
+  main .search .searchedMovieList .searchedMovie .searchedMovieInfo .movieTitle {
+    font-size: 30px;
+  }
+}
+@media (max-width: 1280px) and (min-width: 768px) {
+  main .search .searchedMovieList .searchedMovie .searchedMovieInfo .movieTitle {
+    font-size: 24px;
+  }
+}
+main .search .searchedMovieList .searchedMovie .searchedMovieInfo .summary {
+  flex: 1 0 0;
+  align-self: stretch;
+  color: #A7A7A7;
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+@media (min-width: 1280px) {
+  main .search .searchedMovieList .searchedMovie .searchedMovieInfo .summary {
+    font-size: 16px;
+  }
+}
+@media (max-width: 1280px) and (min-width: 768px) {
+  main .search .searchedMovieList .searchedMovie .searchedMovieInfo .summary {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    whitespace: nowrap;
+    font-size: 14px;
+  }
+}
+main .search .searchedMovieList .searchedMovie .searchedMovieInfo .moreInfo {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: #FFF;
+  font-family: Noto Sans;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+main .search .searchedMovieList .searchedMovie .searchedMovieInfo .moreInfo .views, main .search .searchedMovieList .searchedMovie .searchedMovieInfo .moreInfo .likes {
+  display: flex;
+  align-items: flex-start;
+  gap: 2px;
+  color: #666;
+  font-family: Noto Sans;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+main .requestMovie h1 {
+  text-align: center;
+  margin-top: 100px;
+  margin-bottom: 50px;
+}
+main .requestMovie .selectMenu .Btns {
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+main .requestMovie .selectMenu .Btns button {
+  margin-top: 60px;
+  margin-bottom: 10px;
+  margin-left: 120px;
+  margin-right: 120px;
+  height: 200px;
+  width: 200px;
+  background-color: #fff;
+  border-radius: 12px;
+}
+main .requestMovie .selectMenu .Btns .comment {
+  font-size: smaller;
+}
+main .requestMovie .requestBtn {
+  text-align: center;
+  margin-top: 50px;
+  height: 40px;
+  background-color: #fff;
+  border-radius: 10px;
+}
+main .requestMovie .request .inputs {
+  text-align: center;
+  position: relative;
+  margin: auto;
+  margin-top: 100px;
+  width: 500px;
+}
+main .requestMovie .request .inputs span {
+  position: absolute;
+  left: 80px;
+}
+main .requestMovie .request .inputs input {
+  width: 200px;
+  height: 18px;
+}
+main .requestMovie .request .inputs .titleInput {
+  margin-bottom: 30px;
+}
+main .requestMovie .request .inputs .directorInput button {
+  position: absolute;
+}
+main .requestMovie .request .inputs .directorInput .directors {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 20px;
+}
+main .requestMovie .request .inputs .directorInput .directors .directorBox {
+  background-color: #fff;
+  color: #000;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  width: 120px;
+  height: 19px;
+  border: 1px solid black;
+  margin: 0 5px;
+}
+main .requestMovie .request .inputs .directorInput .directors .directorBox .director {
+  color: #000;
+  font-size: small;
+  width: 100px;
+  transform: translateX(10px);
+}
+main .requestMovie .request .inputs .directorInput .directors .directorBox button {
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  transform: translateX(100px);
+}
+main .requestMovie .request .inputs .directorInput .directors .void {
+  height: 21px;
+  background-color: rgba(0, 0, 0, 0);
+}
+main .account {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 80px;
+  align-self: stretch;
+}
+@media (min-width: 1280px) {
+  main .account {
+    padding: 190px 0px;
+  }
+}
+@media (max-width: 1280px) and (min-width: 768px) {
+  main .account {
+    padding: 190px 34px;
+  }
+}
+@media (max-width: 768px) {
+  main .account {
+    padding: 190px 15px;
+  }
+}
+main .account .totalInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+@media (min-width: 1280px) {
+  main .account .totalInfo {
+    width: 1200px;
+    gap: 40px;
+  }
+}
+@media (max-width: 1280px) and (min-width: 768px) {
+  main .account .totalInfo {
+    gap: 40px;
+    align-self: stretch;
+  }
+}
+@media (max-width: 768px) {
+  main .account .totalInfo {
+    align-self: stretch;
+  }
+}
+@media (min-width: 1280px) {
+  main .account .totalInfo .title {
+    display: flex;
+    padding: 20px 0px;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+    align-self: stretch;
+    border-radius: 20px;
+    border: 1px solid #666;
+  }
+}
+@media (max-width: 1280px) and (min-width: 768px) {
+  main .account .totalInfo .title {
+    display: flex;
+    padding: 20px 0px;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+    align-self: stretch;
+    border-radius: 20px;
+    border: 1px solid #666;
+  }
+}
+@media (max-width: 768px) {
+  main .account .totalInfo .title {
+    display: flex;
+    height: 32px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    align-self: stretch;
+    border-radius: 20px;
+    border: 1px solid #666;
+  }
+}
+main .account .totalInfo .title .text {
+  width: auto;
+  height: 40px;
+  color: #FFF;
+  text-align: center;
+  font-family: Noto Sans;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+@media (max-width: 768px) {
+  main .account .totalInfo .title .text {
+    width: 119px;
+    height: auto;
+    font-size: 16px;
+  }
+}
+main .account .totalInfo .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  align-self: stretch;
+}
+@media (max-width: 768px) {
+  main .account .totalInfo .content {
+    gap: 4px;
+  }
+}
+main .account .totalInfo .content .info {
+  display: flex;
+  align-items: center;
+  align-self: stretch;
+}
+@media (min-width: 1280px) {
+  main .account .totalInfo .content .info {
+    height: 50px;
+    gap: 24px;
+  }
+}
+@media (max-width: 1280px) and (min-width: 768px) {
+  main .account .totalInfo .content .info {
+    height: 50px;
+    gap: 20px;
+  }
+}
+@media (max-width: 768px) {
+  main .account .totalInfo .content .info {
+    height: 40px;
+    gap: 6px;
+  }
+}
+main .account .totalInfo .content .info .infoNameBox {
+  color: #A7A7A7;
+  text-align: center;
+  font-family: Noto Sans;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+@media (min-width: 1280px) {
+  main .account .totalInfo .content .info .infoNameBox {
+    width: 180px;
+  }
+}
+@media (max-width: 1280px) and (min-width: 768px) {
+  main .account .totalInfo .content .info .infoNameBox {
+    width: 128px;
+  }
+}
+@media (max-width: 768px) {
+  main .account .totalInfo .content .info .infoNameBox {
+    width: 68px;
+    text-align: left;
+    font-size: 8px;
+  }
+}
+main .account .totalInfo .content .info .infoBox {
+  flex: 1 0 0;
+  color: #FFF;
+  font-family: Noto Sans;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  gap: 24px;
+}
+@media (min-width: 1280px) {
+  main .account .totalInfo .content .info .infoBox {
+    display: flex;
+    padding-left: 240px;
+    align-items: flex-start;
+  }
+}
+@media (max-width: 1280px) and (min-width: 768px) {
+  main .account .totalInfo .content .info .infoBox {
+    display: flex;
+    align-items: flex-start;
+  }
+}
+@media (max-width: 768px) {
+  main .account .totalInfo .content .info .infoBox {
+    gap: 6px;
+    font-size: 8px;
+  }
+}
+@media (min-width: 1280px) {
+  main .account .totalInfo .content .info .infoCheckBox {
+    display: flex;
+    padding: 0px 204px;
+    align-items: flex-start;
+    gap: 24px;
+  }
+}
+@media (max-width: 1280px) and (min-width: 768px) {
+  main .account .totalInfo .content .info .infoCheckBox {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+  }
+}
+@media (max-width: 768px) {
+  main .account .totalInfo .content .info .infoCheckBox {
+    display: flex;
+    width: 218px;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+}
+main .account .totalInfo .content .info button {
+  display: flex;
+  width: auto;
+  padding: 10px 20px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  background: #2F2F2F;
+  color: #FFF;
+  text-align: center;
+  font-family: Noto Sans;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+@media (min-width: 1280px) {
+  main .account .totalInfo .content .info button {
+    height: 50px;
+  }
+}
+@media (max-width: 1280px) and (min-width: 768px) {
+  main .account .totalInfo .content .info button {
+    height: 50px;
+  }
+}
+@media (max-width: 768px) {
+  main .account .totalInfo .content .info button {
+    height: 20px;
+    font-size: 8px;
+  }
+}
+main .account .totalInfo .content .info .sns, main .account .totalInfo .content .info .e-mail {
+  display: flex;
+  align-items: center;
+}
+@media (min-width: 1280px) {
+  main .account .totalInfo .content .info .sns, main .account .totalInfo .content .info .e-mail {
+    width: 195px;
+  }
+}
+@media (max-width: 1280px) and (min-width: 768px) {
+  main .account .totalInfo .content .info .sns, main .account .totalInfo .content .info .e-mail {
+    width: 220px;
+  }
+}
+main .account .totalInfo .content .info .sns input[type=checkbox], main .account .totalInfo .content .info .e-mail input[type=checkbox] {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  accent-color: #4A4A4A;
+}
+@media (max-width: 768px) {
+  main .account .totalInfo .content .info .sns input[type=checkbox], main .account .totalInfo .content .info .e-mail input[type=checkbox] {
+    width: 15px;
+    height: 15px;
+    flex-shrink: 1;
+  }
+}
+main .account .totalInfo .content .info .sns input[type=checkbox] :checked, main .account .totalInfo .content .info .e-mail input[type=checkbox] :checked {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+@media (max-width: 768px) {
+  main .account .totalInfo .content .info .sns input[type=checkbox] :checked, main .account .totalInfo .content .info .e-mail input[type=checkbox] :checked {
+    width: 15px;
+    height: 15px;
+    flex-shrink: 1;
+  }
+}
+main .account .totalInfo .content .info .sns .text, main .account .totalInfo .content .info .e-mail .text {
+  flex: 1 0 0;
+  color: #FFF;
+  text-align: center;
+  font-family: Noto Sans;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+@media (max-width: 768px) {
+  main .account .totalInfo .content .info .sns .text, main .account .totalInfo .content .info .e-mail .text {
+    width: 76px;
+    font-size: 8px;
+  }
+}
+@media (min-width: 1280px) {
+  main .account .totalInfo .content .info img {
+    width: 50px;
+    height: 50px;
+  }
+}
+@media (max-width: 1280px) and (min-width: 768px) {
+  main .account .totalInfo .content .info img {
+    width: 40px;
+    height: 40px;
+  }
+}
+@media (max-width: 768px) {
+  main .account .totalInfo .content .info img {
+    width: 20px;
+    height: 20px;
+  }
+}
+@media (min-width: 1280px) {
+  main .account .totalInfo .content .more {
+    display: flex;
+    width: 1200px;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+  }
+}
+@media (max-width: 1280px) and (min-width: 768px) {
+  main .account .totalInfo .content .more {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+    align-self: stretch;
+  }
+}
+@media (max-width: 768px) {
+  main .account .totalInfo .content .more {
+    width: 218px;
+    height: 20px;
+    padding: 10px 20px;
+  }
+}
+main .account .totalInfo .content .more button {
+  display: flex;
+  padding: 10px 20px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  background: #2F2F2F;
+  color: #FFF;
+  text-align: center;
+  font-family: Noto Sans;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+@media (min-width: 1280px) {
+  main .account .totalInfo .content .more button {
+    width: auto;
+    height: 50px;
+  }
+}
+@media (max-width: 1280px) and (min-width: 768px) {
+  main .account .totalInfo .content .more button {
+    width: 460px;
+    height: 50px;
+  }
+}
+@media (max-width: 768px) {
+  main .account .totalInfo .content .more button {
+    width: 218px;
+    height: 20px;
+    font-size: 8px;
+  }
+}
+main .account .totalInfo .content .line {
+  height: 1px;
+  width: 100%;
+  background: #666;
+}
+main .postList {
+  text-align: center;
+}
+main .postList h1 {
+  margin-top: 100px;
+}
+main .postList .listBox {
+  margin: auto;
+  width: 500px;
+  height: 500px;
+}
+main .postList .listBox ul {
+  margin: 0;
+  padding: 0;
+  border: solid 1px white;
+}
+main .postList .listBox ul li {
+  display: flex;
+  flex-direction: row;
+  border-bottom: solid 1px white;
+  border-top: solid 1px white;
+}
+main .postList .listBox ul li .title {
+  margin: 10px 20px;
+}
+main .postList .listBox ul li .createdDate {
+  margin: 10px 20px;
+}
+main .postList .currPageBtn {
+  background-color: #fff;
+  color: #000;
+  border-radius: 30%;
+}
+main .postList button {
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  color: white;
+}
+main .noticeDetail h2 {
+  margin: 50px 0;
+}
+main .noticeDetail .content {
+  margin: 0 auto;
+  width: 500px;
+  height: 500px;
+  text-align: start;
+}
+main .customerService {
+  text-align: center;
+}
+main .customerService h1 {
+  margin-top: 100px;
+}
+main .customerService .FAQ .FAQBox {
+  margin-top: 70px;
+  height: 220px;
+}
+main .customerService .FAQ .FAQBox .FAQCategorys {
+  position: absolute;
+  left: 5vw;
+  width: 180px;
+}
+main .customerService .FAQ .FAQBox .FAQCategorys button {
+  width: 180px;
+  background-color: #fff;
+  text-align: start;
+  border: none;
+  border-bottom: solid 1px black;
+}
+main .customerService .FAQ .FAQBox .FAQCategorys .categoryBtn {
+  font-size: large;
+}
+main .customerService .FAQ .FAQBox .FAQCategorys .FAQBtn {
+  height: 24px;
+  font-size: small;
+}
+main .customerService .FAQ .FAQBox .FAQContent {
+  margin: auto;
+  text-align: center;
+}
+main .customerService .FAQ .FAQBox .FAQContent .content {
+  margin-top: 50px;
+}
+main .customerService .FAQ .FAQBox .FAQContent .FAQComment {
+  transform: translateY(30px);
+}
+main .customerService .FAQ .inquiryBtn {
+  float: left;
+  top: 400px;
+  transform: translateX(5vw);
+  width: 180px;
+  border: none;
+  font-size: large;
+  background-color: #fff;
+  color: #000;
+}
+main .customerService .inquiry {
+  text-align: center;
+}
+main .customerService .inquiry .inquiryList h1 {
+  margin-top: 150px;
+}
+main .customerService .inquiry .inquiryList .postBtn {
+  background-color: #fff;
+  color: #000;
+  width: 80px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  font-size: medium;
+  transform: translateX(205px);
+}
+main .customerService .inquiry .inquiryList .listBox {
+  margin: auto;
+  width: 500px;
+  height: 500px;
+}
+main .customerService .inquiry .inquiryList .listBox ul {
+  margin: 0;
+  padding: 0;
+  border: solid 1px white;
+}
+main .customerService .inquiry .inquiryList .listBox ul li {
+  display: flex;
+  flex-direction: row;
+  justify-items: start;
+  border-bottom: solid 1px white;
+  border-top: solid 1px white;
+}
+main .customerService .inquiry .inquiryList .listBox ul li .no {
+  width: 17.25px;
+  margin: 10px 20px;
+}
+main .customerService .inquiry .inquiryList .listBox ul li .title {
+  margin: 10px 20px;
+}
+main .customerService .inquiry .inquiryList .currPageBtn {
+  background-color: #fff;
+  color: #000;
+  border-radius: 30%;
+}
+main .customerService .inquiry .inquiryList button {
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  color: white;
+}
+main .customerService .inquiry .inquiryDetail h2 {
+  margin: 50px 0;
+}
+main .customerService .inquiry .inquiryDetail .content {
+  margin: 0 auto;
+  width: 500px;
+  height: 500px;
+  text-align: start;
+}
+main .customerService .inquiry .inquiryPost .inputs {
+  margin-top: 100px;
+  text-align: center;
+}
+main .customerService .inquiry .inquiryPost .inputs .inputBox {
+  margin-bottom: 30px;
+}
+main .customerService .inquiry .inquiryPost .inputs .inputBox input {
+  width: 200px;
+}
+main .customerService .inquiry .inquiryPost .inputs .inputBox select {
+  width: 208px;
+  height: 21px;
+  padding: 1px 2px;
+  border: solid white 2px;
+  text-align: center;
+}
+main .customerService .inquiry .inquiryPost .inputs .inputBox textarea {
+  width: 500px;
+  height: 300px;
+}
+main .customerService .inquiry .inquiryPost .inputs .inputBox .inputName {
+  position: absolute;
+  transform: translateX(-100px);
+}
+main .customerService .inquiry .inquiryPost .postBtn {
+  text-align: center;
+  margin-top: 50px;
+  height: 40px;
+  background-color: #fff;
+  border-radius: 10px;
+}/*# sourceMappingURL=App.css.map */
